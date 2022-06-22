@@ -1,0 +1,74 @@
+head {
+  height: 1200px;
+  width: 100%;
+  background-color: green;
+}
+
+table {
+  background-color: lightgray;
+  width: 78%;
+  height: 60vw;
+  outline: 4px solid black;
+}
+
+tr {
+  background-color: lightgray;
+  width: 100%;
+  outline: 2px solid black;
+}
+
+td {
+  outline: 4px solid black;
+  background-color: red;
+  width: 14%;
+  height: 10vw;
+  margin: 0;
+  padding: 0;
+}
+
+td.test {
+  outline: 4px solid black;
+  background-image: url("circleImageShieldBlue.png");
+  background-size: contain;
+  width: 14%;
+  height: 10vw;
+  margin: 0;
+  padding: 0;
+}
+
+section.gameBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.userControls {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
+  height: 25vw;
+  background-image: linear-gradient(to right, rgb(122, 103, 103), black);
+  width: 80%;
+  margin-bottom: 2px;
+}
+
+div.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 10vw;
+}
+
+div.controls {
+  display:flex;
+  flex-direction:row;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 10vw;
+  margin: 0;
+  padding: 0;
+  /* outline: 4px solid black; */
+}
