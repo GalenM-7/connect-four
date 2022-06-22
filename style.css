@@ -45,9 +45,10 @@ section.gameBoard {
 div.userControls {
   /* display: flex;
   flex-direction: row;
-  justify-content: center; */
+  justify-content: space-between; */
   height: 25vw;
-  background-image: linear-gradient(to right, rgb(122, 103, 103), black);
+  background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(196, 195, 195));
+  outline: 3px solid black;
   width: 80%;
   margin-bottom: 2px;
 }
@@ -57,6 +58,14 @@ div.header {
   flex-direction: row;
   justify-content: space-between;
   height: 10vw;
+}
+
+.colorCircleRed {
+  width:5vw;
+  height:5vw;
+  display:inline-block;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, red, darkred);
 }
 
 div.controls {
@@ -72,3 +81,16 @@ img {
   padding: 0;
   /* outline: 4px solid black; */
 }
+
+.playerSections {
+  width:45%;
+  margin-left:2%;
+  margin-right:2%;
+    margin-top:2%;
+  margin-bottom:2%;
+  height:20vw;
+  /* background-color: aqua; */
+  display:inline-block;
+}
+
+
