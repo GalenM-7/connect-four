@@ -21,32 +21,44 @@
     </section> -->
       <section class="gameBoard">
         <!-- <div class="userControls"> -->
-          <div class="header">
-            <p>Connect Four</p>
-            <button>Start Game</button>
+          <div class="banner">
+            <p class="bannerGameTitle">Connect Four</p>
+            <button class="startGame">Start Game</button>
           </div>
           <div class="userControls">
             <div class="playerSections">
-            <p>Player 1</p>
-              <div class="colorCircleRed"></div>
-            <select>
+            <p id="player1ColorLabel" class="player1Name">Player 1</p>
+              <div id="colorsChooseP1" class="colorButtons" >
+                <div class="colorCircleRed"></div>
+                <div class="colorCircleBlue"></div>
+                <div class="colorCircleGreen"></div>
+                <div class="colorCirclePurple"></div>
+            </div>
+            <!-- <select>
               <option value="red">Red</option>
               <option value="blue">Blue</option>
               <option value="violet">Violet</option>
               <option value="violet">Green</option>
-            </select>
+            </select> -->
             </div>
           
             <!-- </div> -->
             <div class="playerSections">           
-            <p>Player 2</p>
-            <div class="colorCircleRed"></div>
-            <select>
+            <p id="player2ColorLabel" class="player2Name">Player 2</p>
+            <div id="colorsChooseP2" class="colorButtons">
+                <div class="colorCircleRed"></div>
+                <div class="colorCircleBlue"></div>
+                <div class="colorCircleGreen"></div>
+                <div class="colorCirclePurple"></div>
+            </div>
+         
+
+            <!-- <select>
               <option value="red">Red</option>
               <option value="blue">Blue</option>
-              <option value="violet">Violet</option>
-              <option value="violet">Green</option>
-            </select>
+              <option value="purple">Purple</option>
+              <option value="green">Green</option>
+            </select> -->
 
 
 </div>
@@ -232,4 +244,6 @@
       </section>
     </main>
   </body>
+      <script refer src="/app.js"></script>
+
 </html>
