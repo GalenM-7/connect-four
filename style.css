@@ -204,7 +204,7 @@ img.dropImage {
   /* margin-left:2%; */
   margin-left:3%;
   margin-right:2%;
-  margin-top:0px;
+  margin-top:4%;
   margin-bottom:20vw;
   /* margin-bottom:2%; */
   height:75%;
@@ -239,9 +239,9 @@ img.dropImage {
   height:auto;
 }
 
-.turnIndicator {
+/* .turnIndicator {
   
-}
+} */
 
 .turnContainer {
   display:block;
