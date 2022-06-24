@@ -21,14 +21,16 @@ td {
   padding: 0;
 }
 
-td.test {
-  outline: 4px solid black;
+.specialPieces {
+  /* outline: 4px solid black; */
   background-image: url("circleImageShieldBlue.png");
   background-size: contain;
-  width: 14%;
-  height: 10vw;
-  margin: 0;
-  padding: 0;
+   width:7vw;
+  height:7vw;
+  margin-left:.25vw;
+  margin-right:.25vw;
+  display:inline-block;
+  border-radius: 50%;
 }
 
 section.gameBoard {
@@ -41,7 +43,8 @@ div.userControls {
   /* display: flex;
   flex-direction: row;
   justify-content: space-between; */
-  height: 25vw;
+  height: 29vw;
+  margin:0;
   background-image: linear-gradient(to right, rgb(196, 195, 195), rgb(255, 255, 255), rgb(196, 195, 195));
   outline: 1vw solid rgb(41, 38, 38);
   width: 77%;
@@ -63,7 +66,7 @@ div.banner {
   font-size: 4vw;
   font-weight: bold;
   text-align:center;
-  margin:2.5vw;
+  margin:2vw;
 }
 
 .player2Name {
@@ -71,7 +74,7 @@ div.banner {
   font-size: 4vw;
   font-weight: bold;
   text-align:center;
-  margin:2.5vw;
+  margin:2vw;
 }
 
 .bannerGameTitle {
@@ -88,8 +91,8 @@ div.banner {
 }
 
 .colorCircleRed {
-  width:5vw;
-  height:5vw;
+  width:4.5vw;
+  height:4.5vw;
   margin-left:.25vw;
   margin-right:.25vw;
   display:inline-block;
@@ -97,9 +100,19 @@ div.banner {
   background-image: linear-gradient(to right, rgb(248, 142, 142), rgb(234, 10, 10));
 }
 
+.colorCircleRedSmall {
+  width:3vw;
+  height:3vw;
+  margin-left:1.5vw;
+  margin-right:.25vw;
+  display:inline-block;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, rgb(248, 142, 142), rgb(234, 10, 10));
+}
+
 .colorCirclePurple {
-  width:5vw;
-  height:5vw;
+  width:4.5vw;
+  height:4.5vw;
   margin-left:.25vw;
   margin-right:.25vw;
   display:inline-block;
@@ -107,9 +120,20 @@ div.banner {
   background-image: linear-gradient(to right, rgb(208, 58, 208), purple);
 }
 
+.colorCirclePurpleSmall {
+  width:3vw;
+  height:3vw;
+  margin-left:2vw;
+  margin-right:.25vw;
+  margin-bottom:0;
+  display:inline-block;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, rgb(208, 58, 208), purple);
+}
+
 .colorCircleBlue {
-  width:5vw;
-  height:5vw;
+  width:4.5vw;
+  height:4.5vw;
   margin-left:.25vw;
   margin-right:.25vw;
   display:inline-block;
@@ -118,15 +142,39 @@ div.banner {
   /* outline: 3px solid black; */
 }
 
+.colorCircleBlueSmall {
+  width:3vw;
+  height:3vw;
+  margin-left:2vw;
+  margin-right:.25vw;
+  margin-bottom:0;
+  display:inline-block;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, rgb(112, 112, 250), blue);
+}
+
 .colorCircleGreen {
-  width:5vw;
-  height:5vw;
+  width:4.5vw;
+  height:4.5vw;
   margin-left:.25vw;
   margin-right:.25vw;
   display:inline-block;
   border-radius: 50%;
   background-image: linear-gradient(to right, rgb(39, 231, 39),green );
 }
+
+.colorCircleGreenSmall {
+  width:3vw;
+  height:3vw;
+  margin-left:2vw;
+  margin-right:.25vw;
+  margin-bottom:0;
+  display:inline-block;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, rgb(39, 231, 39),green );
+}
+
+
 
 div.controls {
   display:flex;
@@ -142,19 +190,95 @@ img {
   /* outline: 4px solid black; */
 }
 
+img.dropImage {
+  display: block;
+  width: 100%;
+  height: 4vw;
+  margin: 0;
+  padding: 0;
+  /* outline: 4px solid black; */
+}
+
 .playerSections {
-  width:45%;
-  margin-left:2%;
+  width:43%;
+  /* margin-left:2%; */
+  margin-left:3%;
   margin-right:2%;
-    margin-top:2%;
-  margin-bottom:2%;
-  height:20vw;
+  margin-top:0px;
+  margin-bottom:20vw;
+  /* margin-bottom:2%; */
+  height:75%;
   /* background-color: aqua; */
   display:inline-block;
 }
 
 .startGame {
   background-color: gold;
+  height: 5vw;
+  margin-top:2vw;
+  margin-right:2vw;
+  font-weight:bold;
+}
+
+.input {
+  display:inline-block;
+}
+
+.submitButton {
+  font-size: 10px;
+  margin-bottom:3vw;
+  background-color: black;
+  color: white
+}
+
+.userNameField {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  width:fit-content;
+  height:auto;
+}
+
+.turnIndicator {
+  
+}
+
+.turnContainer {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:0;
+  margin-bottom:0;
+  width:100%;
+  height:2vw;
+  /* background-color:rgb(43, 255, 0); */
+}
+
+table.dropClassTable {
+  background-color: lightgray;
+  width: 78%;
+  height: 5vw;
+  outline: 4px solid black;
 }
 
 
+td.dropClassCell {
+  outline: 4px solid rgb(34, 33, 33);
+  background-image: linear-gradient(to right, gold, yellow, gold);
+  width: 14%;
+  height: 10%;
+  margin: 0;
+  padding: 0;
+  color:black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align:center;
+  font-size:1.7vw;
+  font-weight:bold;
+}
+
+tr.dropClassRow {
+  background-color: lightgray;
+  width: 100%;
+  outline: 2px solid rgb(34, 33, 33);
+  /* display:inline-block; */
+}

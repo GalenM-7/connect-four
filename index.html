@@ -9,62 +9,96 @@
   </head>
   <body>
     <main>
-      <!-- <section class="userControls">
-        
-    <div class="header">
-        
-    </div>
-    <div class="controls">
-        
-    </div>
-        
-    </section> -->
-      <section class="gameBoard">
-        <!-- <div class="userControls"> -->
-          <div class="banner">
-            <p class="bannerGameTitle">Connect Four</p>
-            <button class="startGame">Start Game</button>
-          </div>
-          <div class="userControls">
-            <div class="playerSections">
-            <p id="player1ColorLabel" class="player1Name">Player 1</p>
-              <div id="colorsChooseP1" class="colorButtons" >
-                <div class="colorCircleRed"></div>
-                <div class="colorCircleBlue"></div>
-                <div class="colorCircleGreen"></div>
-                <div class="colorCirclePurple"></div>
+    
+      </section> 
+        <section class="gameBoard">
+          <!-- <div class="userControls"> -->
+            <div class="banner">
+              <p class="bannerGameTitle">Connect Four</p>
+              <!-- <select>
+                <option value="red">Regular</option>
+                <option value="blue">Add 1 Row</option>
+                <option value="violet">Add 3 Row</option>
+                <option value="violet">Add 4 Row</option>
+              </select> -->
+              <!-- <button class="startGame">Instructions</button> -->
+              <button class="startGame">Start Game</button>
             </div>
-            <!-- <select>
-              <option value="red">Red</option>
-              <option value="blue">Blue</option>
-              <option value="violet">Violet</option>
-              <option value="violet">Green</option>
-            </select> -->
-            </div>
-          
-            <!-- </div> -->
+            <div class="userControls">
+              <div id="turnContainer"><p class="turnIndicator">Turn: Player 1</p></div><br/>
+              <div class="playerSections">
+              <p id="player1ColorLabel" class="player1Name">Player 1</p>
+              <div id="usernameBoxP1" class="userNameField">            
+                <input id="nodeInputP1" type="text" size="6" placeholder="user name" class="input"/>
+                <input type="submit" class="submitButton"></input>
+              </div>
+                <div id="colorsChooseP1" class="colorButtons" >
+                  <div class="colorCircleRed"></div>
+                  <div class="colorCircleBlue"></div>
+                  <div class="colorCircleGreen"></div>
+                  <div class="colorCirclePurple"></div>
+              </div>
+              <!-- <select>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="violet">Violet</option>
+                <option value="violet">Green</option>
+              </select> -->
+              </div>
+            
+              <!-- </div> -->
             <div class="playerSections">           
-            <p id="player2ColorLabel" class="player2Name">Player 2</p>
-            <div id="colorsChooseP2" class="colorButtons">
-                <div class="colorCircleRed"></div>
-                <div class="colorCircleBlue"></div>
-                <div class="colorCircleGreen"></div>
-                <div class="colorCirclePurple"></div>
+              <p id="player2ColorLabel" class="player2Name">Player 2</p>
+                <div id= "usernameBoxP2" class="userNameField">            
+                  <input id="nodeInputP2" type="text" size="6" placeholder="user name" class="input"/>
+                  <input type="submit" class="submitButton"></input>
+                </div>
+              <div id="colorsChooseP2" class="colorButtons">
+                  <div class="colorCircleRed"></div>
+                  <div class="colorCircleBlue"></div>
+                  <div class="colorCircleGreen"></div>
+                  <div class="colorCirclePurple"></div>
+              </div>
             </div>
-         
-
-            <!-- <select>
-              <option value="red">Red</option>
-              <option value="blue">Blue</option>
-              <option value="purple">Purple</option>
-              <option value="green">Green</option>
-            </select> -->
-
-
-</div>
-       
           </div>
-        <!-- </div> -->
+
+              <!-- <select>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="purple">Purple</option>
+                <option value="green">Green</option>
+              </select> -->
+      
+         <table class="dropClassTable">
+          <tr class="dropClassRow">
+            <td class="dropClassCell">
+              Drop Here
+            </td>
+
+            <td class="dropClassCell">
+              Drop Here
+            </td>
+
+            <td class="dropClassCell">
+            Drop Here
+            </td>
+
+            <td class="dropClassCell">
+              Drop Here
+            </td>
+
+            <td class="dropClassCell">
+              Drop Here
+            </td>
+
+            <td class="dropClassCell">
+              Drop Here
+            </td>
+
+            <td class="dropClassCell">
+              Drop Here
+            </td>
+          </tr>   
         <table>
           <tr>
             <td>
