@@ -17,6 +17,7 @@ state = {
   newGame: false,
   turn: null,
   turnColor: null,
+  turnColorClass: null,
   players: [
     {
       player1Color: null,
@@ -36,60 +37,62 @@ state = {
   gameBoardColumns: 7,
   gameBoardRows: 6,
   toWin: 4,
+  animationDropPhase: 1,
+  animationEnd: 7,
   gameBoard: [
     [
+      { x: 0, y: 0, contents: "empty" },
+      { x: 0, y: 1, contents: "empty" },
+      { x: 0, y: 2, contents: "empty" },
+      { x: 0, y: 3, contents: "empty" },
+      { x: 0, y: 4, contents: "empty" },
+      { x: 0, y: 5, contents: "empty" },
+      { x: 0, y: 6, contents: "empty" },
+    ],
+    [
+      { x: 1, y: 0, contents: "empty" },
       { x: 1, y: 1, contents: "empty" },
-      { x: 2, y: 1, contents: "empty" },
-      { x: 3, y: 1, contents: "empty" },
-      { x: 4, y: 1, contents: "empty" },
-      { x: 5, y: 1, contents: "empty" },
-      { x: 6, y: 1, contents: "empty" },
-      { x: 7, y: 1, contents: "empty" },
-    ],
-    [
       { x: 1, y: 2, contents: "empty" },
-      { x: 2, y: 2, contents: "empty" },
-      { x: 3, y: 2, contents: "empty" },
-      { x: 4, y: 2, contents: "empty" },
-      { x: 5, y: 2, contents: "empty" },
-      { x: 6, y: 2, contents: "empty" },
-      { x: 7, y: 2, contents: "empty" },
-    ],
-    [
       { x: 1, y: 3, contents: "empty" },
-      { x: 2, y: 3, contents: "empty" },
-      { x: 3, y: 3, contents: "empty" },
-      { x: 4, y: 3, contents: "empty" },
-      { x: 5, y: 3, contents: "empty" },
-      { x: 6, y: 3, contents: "empty" },
-      { x: 7, y: 3, contents: "empty" },
-    ],
-    [
       { x: 1, y: 4, contents: "empty" },
-      { x: 2, y: 4, contents: "empty" },
-      { x: 3, y: 4, contents: "empty" },
-      { x: 4, y: 4, contents: "empty" },
-      { x: 5, y: 4, contents: "empty" },
-      { x: 6, y: 4, contents: "empty" },
-      { x: 7, y: 4, contents: "empty" },
-    ],
-    [
       { x: 1, y: 5, contents: "empty" },
-      { x: 2, y: 5, contents: "empty" },
-      { x: 3, y: 5, contents: "empty" },
-      { x: 4, y: 5, contents: "empty" },
-      { x: 5, y: 5, contents: "empty" },
-      { x: 6, y: 5, contents: "empty" },
-      { x: 7, y: 5, contents: "empty" },
+      { x: 1, y: 6, contents: "empty" },
     ],
     [
-      { x: 1, y: 6, contents: "empty" },
+      { x: 2, y: 0, contents: "empty" },
+      { x: 2, y: 1, contents: "empty" },
+      { x: 2, y: 2, contents: "empty" },
+      { x: 2, y: 3, contents: "empty" },
+      { x: 2, y: 4, contents: "empty" },
+      { x: 2, y: 5, contents: "empty" },
       { x: 2, y: 6, contents: "empty" },
+    ],
+    [
+      { x: 3, y: 0, contents: "empty" },
+      { x: 3, y: 1, contents: "empty" },
+      { x: 3, y: 2, contents: "empty" },
+      { x: 3, y: 3, contents: "empty" },
+      { x: 3, y: 4, contents: "empty" },
+      { x: 3, y: 5, contents: "empty" },
       { x: 3, y: 6, contents: "empty" },
+    ],
+    [
+      { x: 4, y: 0, contents: "empty" },
+      { x: 4, y: 1, contents: "empty" },
+      { x: 4, y: 2, contents: "empty" },
+      { x: 4, y: 3, contents: "empty" },
+      { x: 4, y: 4, contents: "empty" },
+      { x: 4, y: 5, contents: "empty" },
       { x: 4, y: 6, contents: "empty" },
+    ],
+    [
+      { x: 5, y: 0, contents: "empty" },
+      { x: 5, y: 1, contents: "empty" },
+      { x: 5, y: 2, contents: "empty" },
+      { x: 5, y: 3, contents: "empty" },
+      { x: 5, y: 4, contents: "empty" },
+      { x: 5, y: 5, contents: "empty" },
       { x: 5, y: 6, contents: "empty" },
-      { x: 6, y: 6, contents: "empty" },
-      { x: 7, y: 6, contents: "empty" },
     ],
   ],
 };
@@ -484,121 +487,254 @@ function checkSpecificDropChipColumn( row, column ) {
     }
 }
 
+function animationSwap(
+  // animationNodeRemove, animationNodeAdd, 
+  columnSet, classToAdd ) {
+    console.log("animationRannnnnnnnnnnnnnnnnnnnn")
+  // animationNodeRemove.className = "";
+  // animationNodeAdd.className = classToAdd
+  let rowNode1 = [...row1Node.childNodes];
+  let rowNode2 = [...row2Node.childNodes];
+  let rowNode3 = [...row3Node.childNodes];
+  let rowNode4 = [...row4Node.childNodes];
+  let rowNode5 = [...row5Node.childNodes];
+  let rowNode6 = [...row6Node.childNodes];
+  // let rowNode7 = [...row7Node.childNodes];
+  // let rowNode8 = [...row1Node.childNodes];
+  // let rowNode9 = [...row1Node.childNodes];
+  if ( state.animationDropPhase === 1 && state.animationDropPhase <= state.animationEnd ) {
+    // rowNode1[column].className = "";
+    rowNode1[columnSet].className = classToAdd;
+    // state.animationDropPhase = 2
+    state.animationDropPhase++
+  } else if ( state.animationDropPhase === 2 && state.animationDropPhase <= state.animationEnd ) {
+    rowNode1[columnSet].className = "";
+    rowNode2[columnSet].className = classToAdd;
+    state.animationDropPhase++
+  }  else if ( state.animationDropPhase === 3 && state.animationDropPhase <= state.animationEnd ) {
+    rowNode2[columnSet].className = "";
+    rowNode3[columnSet].className = classToAdd;
+    state.animationDropPhase++
+  } else if ( state.animationDropPhase === 4 && state.animationDropPhase <= state.animationEnd ) {
+    rowNode3[columnSet].className = "";
+    rowNode4[columnSet].className = classToAdd;
+    state.animationDropPhase++
+  } else if ( state.animationDropPhase === 5 && state.animationDropPhase <= state.animationEnd ) {
+    rowNode4[columnSet].className = "";
+    rowNode5[columnSet].className = classToAdd;
+    state.animationDropPhase++
+  } else if ( state.animationDropPhase === 6 && state.animationDropPhase <= state.animationEnd ) {
+    rowNode5[columnSet].className = "";
+    rowNode6[columnSet].className = classToAdd;
+    state.animationDropPhase++
+  } else {
+
+  }
+}
+
+function animationDrop(test) {
+  // if ( state.animationDropPhase <= state.animationEnd && state.animationDropPhase === 1) {
+
+  // }
+  window.alert(test)
+}
+
 dropNode.addEventListener("click", function(event) {
-  const dropNodeClick = event.target.attributes.dropNumber.value;
-  const column = Number(dropNodeClick);
-  const columnMinusOne = column - 1;
-  let currentRow = 1;
-  let currentColumn = 0;
+
   let currentColorClass;
-   for ( let i = 0; i < state.gameBoardRows; i++){
-    let checkOpen = checkSpecificDropChipColumn(i,columnMinusOne);
-console.log("i");
-        console.log(i);
-console.log("columnMinusOne");
-        console.log(columnMinusOne);
-    console.log("checkOpen");
-        console.log(checkOpen);
-         console.log("currentRow");
-        console.log(currentRow);
-         console.log("currentColumn");
-        console.log(currentColumn);
-
-      if (checkOpen === true && i !== 0) {
-        currentRow++
-        currentColumn += 2
-      } else if (checkOpen === true && i === 0){
-        currentRow++
-        currentColumn += 1
-      } else {
-        break
-      }
-   }
-
+  
    switch(state.turn === state.players[0].player1Username){
     case state.players[0].player1Color === "red":
-      currentColorClass = "colorCircleRed"
+      state.turnColorClass = "colorChipRed"
       break;
     case state.players[0].player1Color === "blue":
-      currentColorClass = "colorCircleBlue"
+      state.turnColorClass = "colorChipBlue"
       break;
     case state.players[0].player1Color === "purple":
-      currentColorClass = "colorCirclePurple"
+      state.turnColorClass = "colorChipPurple"
       break;
     case state.players[0].player1Color === "green":
-      currentColorClass = "colorCircleGreen"
+      state.turnColorClass = "colorChipGreen"
       break;
     default:
    } 
 
   switch(state.turn === state.players[1].player2Username){
     case state.players[1].player2Color === "red":
-      currentColorClass = "colorCircleRed"
+      state.turnColorClass = "colorChipRed"
       break;
     case state.players[1].player2Color === "blue":
-      currentColorClass = "colorCircleBlue"
+      state.turnColorClass = "colorChipBlue"
       break;
     case state.players[1].player2Color === "purple":
-      currentColorClass = "colorCirclePurple"
+      state.turnColorClass = "colorChipPurple"
       break;
     case state.players[1].player2Color === "green":
-      currentColorClass = "colorCircleGreen"
+      state.turnColorClass = "colorChipGreen"
       break;
     default:
 
-  } 
+  }
+
+  const dropNodeClick = event.target.attributes.dropNumber.value;
+  const column = Number(dropNodeClick);
+  const row1 = [...row1Node.childNodes];
+  const row2 = [...row2Node.childNodes];
+  const row3 = [...row3Node.childNodes];
+  const row4 = [...row4Node.childNodes];
+  const row5 = [...row5Node.childNodes];
+  const row6 = [...row6Node.childNodes];
+  // state.animationEnd = column;
+  state.animationDropPhase = 1;
+
+  const animationDrop = setInterval(function(){
+    console.log(row1)
+    state.animationDropPhase += 1;
+    console.log(state.animationDropPhase)
+    console.log(state.animationEnd)
+
+    if ( state.animationDropPhase > state.animationEnd){
+      console.log("END THIS ANIMAIONNNN")
+    clearInterval(animationDrop)
+    }},1100)
+
+
+  // console.log("dropNodeClick");
+  // console.dir(dropNodeClick)
+ 
+
+  // const columnMinusOne = column - 1;
+  // let arrayNodeColumnAttributes = [ 1, 3, 5, 7, 9, 11, 13]
+  // let currentColumnIndex = arrayNodeColumnAttributes.indexOf(column);
+  // let currentRow = 0;
+  //  for ( let i = 0; i < state.gameBoardRows; i++){
+  //   let checkOpen = checkSpecificDropChipColumn(i,currentColumnIndex);
+  //   console.log("i + currentColumnIndex")
+  //   console.log(i + " " + column)
+  //   console.log("forloopRan");
+  //     if (checkOpen === true) {
+  //       currentRow++
+          // switch(checkOpen === true) {
+          //   case i === 0:
+          //     row1[column].className = state.turnColorClass;
+          //     console.log("row1[column]");
+          //     console.log(row1[column])
+          //   break;
+          //   case i === 1:
+          //     window.setTimeout(function(){
+          //       row1[column].className = "";
+          //       row2[column].className = state.turnColorClass;
+          //     },300)
+          //     // row1[column].className = "";
+          //     // row2[column].className = state.turnColorClass;
+          //     // console.log("row2[column]");
+          //     // console.log(row2[column])
+          //   break;
+          //   case i===2:
+          //      window.setTimeout(function(){
+          //       row2[column].className = "";
+          //       row3[column].className = state.turnColorClass;
+          //     },300)
+          //     // row2[column].className = "state.turnColorClass";
+          //     // row3[column].className = state.turnColorClass;
+          //     // console.log("row3[column]");
+          //     // console.log(row3[column])
+          //   break;
+          //   case i===3:
+          //       window.setTimeout(function(){
+          //       row3[column].className = "";
+          //       row4[column].className = state.turnColorClass;
+          //     },300)
+          //   break;
+          //   case i===4:
+          //       window.setTimeout(function(){
+          //       row4[column].className = "";
+          //       row5[column].className = state.turnColorClass;
+          //     },300)
+          //   break;
+          //   case i===5:
+          //       window.setTimeout(function(){
+          //       row5[column].className = "";
+          //       row6[column].className = state.turnColorClass;
+          //     },300)
+          //   break;
+          //   default:
+    
+          // }
+      // } 
+      // else if (checkOpen === true && i === 0){
+      //   currentRow++
+      //   currentColumn += 1
+      // }
+      //  else {
+      //   break
+      // }
+      
+   })
+
+  
+
+
    
-  if ( currentRow === 1 
-    // && currentColumn !== 0
-     ) {
-    let rowNode = [...row1Node.childNodes];
-        // console.log(rowNode[1].attributes.ycoordinate.nodeValue);
-        // console.dir(rowNode[1].attributes);
-    console.dir(rowNode[currentColumn]);
-    let currentRowString = String(currentRow);
-    // let nodeResult = [...rowNode.attributes]
+  // if ( currentRow === 1 
+  //   && currentColumn !== 0
+  //    ) {
+  //     let rowNode = [...row1Node.childNodes];
+  //     rowNode[column].className = currentColorClass;
+  //  } else if (currentRow === 2){
+  //      let rowNode = [...row2Node.childNodes];
+  //     rowNode[column].className = currentColorClass;
+  //         window.setInterval(function(){
+  //           console.log(rowNode[column].className)
+  //         });
+   
 
-    // if(rowNode) {
-      // let result= rowNode.filter(function(item) {
-      //   console.dir("infilter " + item);
-      //   // item.attributes.ycoordinate.nodeValue === currentRowString
-      //   // item.attributes.ycoordinate.value === currentRowString
-      // });
-    // }
-    // console.log(result)
+  //  } else if (currentRow === 3){
+  //     let rowNode = [...row3Node.childNodes];
+  //     rowNode[column].className = currentColorClass;
 
-    // nodeResult.className = currentColorClass;
-   } else if (currentRow === 2 && currentColumn !== 0 ){
+  //  } else if (currentRow === 4 ){
+  //     let rowNode = [...row4Node.childNodes];
+  //     rowNode[column].className = currentColorClass;
 
-   } else if (currentRow === 3 && currentColumn !== 0 ){
+  //  } else if (currentRow === 5){
+  //     let rowNode = [...row5Node.childNodes];
+  //     rowNode[column].className = currentColorClass;
 
-   } else if (currentRow === 4 && currentColumn !== 0 ){
+  //  } else if (currentRow === 6){
+  //     // let rowNode = [...row6Node.childNodes];
+  //     // rowNode[column].className = currentColorClass;
+  //   // console.log("currentColorClass")
+  //       // console.log(currentColorClass)
+  //       state.animationEnd = 6;
+  //     window.setInterval(function() {
+  //       animationSwap( 6, state.turnColorClass)
+  //       if ( state.animationDropPhase === state.animationEnd) {
+  //         clearInterval()
+  //       } 
+  //   },40);
+   
+  //  } else if (currentRow === 7){
+  //     // let rowNode = [...row6Node.childNodes];
+  //     // rowNode[column].className = currentColorClass;
 
-   } else if (currentRow === 5 && currentColumn !== 0 ){
+  //  } else if (currentRow === 8){
+  //     // let rowNode = [...row6Node.childNodes];
+  //     // rowNode[column].className = currentColorClass;
 
-   } else if (currentRow === 6 && currentColumn !== 0 ){
-    window.alert("580 trig")
-     let rowNode = [...row6Node.childNodes];
-        // console.log(rowNode[1].attributes.ycoordinate.nodeValue);
-        // console.dir(rowNode[1].attributes);
-    console.dir(rowNode[currentColumn]);
-    let currentRowString = String(currentRow);
-   } else if (currentRow === 7 && currentColumn !== 0 ){
+  //  } else if (currentRow === 9){
+  //     // let rowNode = [...row6Node.childNodes];
+  //     // rowNode[column].className = currentColorClass;
 
-   } else if (currentRow === 8 && currentColumn !== 0 ){
-
-   } else if (currentRow === 9 && currentColumn !== 0 ){
-
-   } else {
-
-   }
+  //  } else {
+  //   window.alert("This column is full.")
+  //  }
   // let checkColumn = typeof column
   // console.log("dropNodeClick")
-})
 
 
-let checkSpecificDropChipColumnCheck = checkSpecificDropChipColumn(1,2);
-console.log(checkSpecificDropChipColumnCheck)
+// let checkSpecificDropChipColumnCheck = checkSpecificDropChipColumn(1,2);
+// console.log(checkSpecificDropChipColumnCheck)
 // console.log(test)
 // console.log(state.gameBoard.length)
 

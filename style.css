@@ -100,6 +100,13 @@ div.banner {
   background-image: linear-gradient(to right, rgb(248, 142, 142), rgb(234, 10, 10));
 }
 
+.colorChipRed {
+  width:11vw;
+  height:100%;
+  display:inline-block;
+  background-image: linear-gradient(to right, rgb(248, 142, 142), rgb(234, 10, 10));
+}
+
 .colorCircleRedSmall {
   width:3vw;
   height:3vw;
@@ -115,6 +122,14 @@ div.banner {
   height:4.5vw;
   margin-left:.25vw;
   margin-right:.25vw;
+  display:inline-block;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, rgb(208, 58, 208), purple);
+}
+
+.colorChipPurple {
+  width:100%;
+  height:100%;
   display:inline-block;
   border-radius: 50%;
   background-image: linear-gradient(to right, rgb(208, 58, 208), purple);
@@ -142,6 +157,14 @@ div.banner {
   /* outline: 3px solid black; */
 }
 
+.colorChipBlue {
+  width:100%;
+  height:100%;
+  display:inline-block;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, rgb(112, 112, 250), blue);
+}
+
 .colorCircleBlueSmall {
   width:3vw;
   height:3vw;
@@ -158,6 +181,14 @@ div.banner {
   height:4.5vw;
   margin-left:.25vw;
   margin-right:.25vw;
+  display:inline-block;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, rgb(39, 231, 39),green );
+}
+
+.colorChipGreen {
+  width:100%;
+  height:100%;
   display:inline-block;
   border-radius: 50%;
   background-image: linear-gradient(to right, rgb(39, 231, 39),green );
@@ -184,8 +215,8 @@ div.controls {
 img {
   display: block;
   width: 100%;
-  height: 10vw;
-  margin: 0;
+  height: 11vw;
+  /* margin: 2px; */
   padding: 0;
   /* outline: 4px solid black; */
 }
