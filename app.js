@@ -22,6 +22,7 @@ state = {
     {
       player1Color: null,
       player1Username: "Player 1",
+      player1ColorClass: null,
       foreverChips: 2,
       destroyDiagonalChips: 1,
       destroyHorizontalChips: 1,
@@ -29,6 +30,7 @@ state = {
     {
       player2Color: null,
       player2Username: "Player 2",
+      player2ColorClass: null,
       foreverChips: 2,
       destroyDiagonalChips: 1,
       destroyHorizontalChips: 1,
@@ -36,9 +38,10 @@ state = {
   ],
   gameBoardColumns: 7,
   gameBoardRows: 6,
+  animation: false,
   toWin: 4,
-  animationDropPhase: 1,
-  animationEnd: 7,
+  // animationDropPhase: 1,
+  // animationEnd: 7,
   gameBoard: [
     [
       { x: 0, y: 0, contents: "empty" },
@@ -195,7 +198,8 @@ colorsChoiceNodeP1.addEventListener("click", function(event) {
   case event.target.className === "colorCircleBlue":
     clearStylingsP1(state.players[0].player1Color);
     colorsPlayer1Heading.style.color = "blue" 
-    state.players[0].player1Color = "blue"
+    state.players[0].player1Color = "blue";
+    state.players[0].player1ColorClass = "colorChipBlue";
     console.dir(event.target.style.outline)
     event.target.style.outline = "3px solid black"
     event.target.style.marginLeft = "1vw"
@@ -204,7 +208,8 @@ colorsChoiceNodeP1.addEventListener("click", function(event) {
   case event.target.className === "colorCirclePurple":
     clearStylingsP1(state.players[0].player1Color);
     colorsPlayer1Heading.style.color = "purple" 
-    state.players[0].player1Color = "purple"
+    state.players[0].player1Color = "purple";
+    state.players[0].player1ColorClass = "colorChipPurple";
     event.target.style.outline = "3px solid black"
     event.target.style.marginLeft = "1vw"
     event.target.style.marginRight = "1vw"
@@ -213,6 +218,7 @@ colorsChoiceNodeP1.addEventListener("click", function(event) {
     clearStylingsP1(state.players[0].player1Color);
     colorsPlayer1Heading.style.color = "green" 
     state.players[0].player1Color = "green"
+    state.players[0].player1ColorClass = "colorChipGreen";
     event.target.style.outline = "3px solid black"
     event.target.style.marginLeft = "1vw"
     event.target.style.marginRight = "1vw"
@@ -221,6 +227,7 @@ colorsChoiceNodeP1.addEventListener("click", function(event) {
     clearStylingsP1(state.players[0].player1Color);
     colorsPlayer1Heading.style.color = "rgb(234, 10, 10)" 
     state.players[0].player1Color = "red"
+    state.players[0].player1ColorClass = "colorChipRed";
     event.target.style.outline = "3px solid black"
     event.target.style.marginLeft = "1vw"
     event.target.style.marginRight = "1vw"
@@ -239,18 +246,20 @@ colorsChoiceNodeP2.addEventListener("click", function(event) {
     clearStylingsP2(state.players[1].player2Color);
 
     // changePlayerHeadline( colorsPlayer2Heading , "Blue" , "blue") 
-    colorsPlayer2Heading.style.color = "blue" 
-    state.players[1].player2Color = "blue"
-    console.dir(event.target.style.outline)
-    event.target.style.outline = "3px solid black"
-    event.target.style.marginLeft = "1vw"
-    event.target.style.marginRight = "1vw"
+    colorsPlayer2Heading.style.color = "blue";
+    state.players[1].player2Color = "blue";
+    state.players[1].player2ColorClass = "colorChipBlue";
+    console.dir(event.target.style.outline);
+    event.target.style.outline = "3px solid black";
+    event.target.style.marginLeft = "1vw";
+    event.target.style.marginRight = "1vw";
   break;
   case event.target.className === "colorCirclePurple":
     clearStylingsP2(state.players[1].player2Color);
       // changePlayerHeadline( colorsPlayer2Heading , "Purple" , "purple")
     colorsPlayer2Heading.style.color = "purple" 
     state.players[1].player2Color = "purple"
+    state.players[1].player2ColorClass = "colorChipPurple";
     event.target.style.outline = "3px solid black"
     event.target.style.marginLeft = "1vw"
     event.target.style.marginRight = "1vw"
@@ -260,6 +269,7 @@ colorsChoiceNodeP2.addEventListener("click", function(event) {
     // changePlayerHeadline( colorsPlayer2Heading , "Green" , "green") 
     colorsPlayer2Heading.style.color = "green" 
     state.players[1].player2Color = "green"
+    state.players[1].player2ColorClass = "colorChipGreen";
     event.target.style.outline = "3px solid black"
     event.target.style.marginLeft = "1vw"
     event.target.style.marginRight = "1vw"
@@ -268,7 +278,8 @@ colorsChoiceNodeP2.addEventListener("click", function(event) {
     clearStylingsP2(state.players[1].player2Color);
     // changePlayerHeadline( colorsPlayer2Heading , "Red" , "rgb(234, 10, 10)") 
     colorsPlayer2Heading.style.color = "rgb(234, 10, 10)" 
-    state.players[1].player2Color = "red"
+    state.players[1].player2Color = "red";
+    state.players[1].player2ColorClass = "colorChipRed";
     event.target.style.outline = "3px solid black"
     event.target.style.marginLeft = "1vw"
     event.target.style.marginRight = "1vw"
@@ -392,18 +403,31 @@ nodeStartGame.addEventListener("click", function() {
       let randomNumber = Math.floor(Math.random() * 10);
 
       if ( randomNumber % 2 === 0) {
-        state.turn === state.players[0].player1Username;
-        state.turnColor === state.players[0].player1Color;
+        state.turn = state.players[0].player1Username;
+        state.turnColor = state.players[0].player1Color;
         nodePlayerSections[0].style.outline="4px solid " + state.players[0].player1Color;
       } else {
-        state.turn === state.players[1].player2Username;
-        state.turnColor === state.players[1].player2Color;
+        state.turn = state.players[1].player2Username;
+        state.turnColor = state.players[1].player2Color;
         nodePlayerSections[1].style.outline="4px solid " + state.players[1].player2Color;
+      }
+
+      if ( state.turnColor === "red" ) {
+          state.turnColorClass = "colorChipRed"
+      } else if (state.turnColor === "purple") {
+          state.turnColorClass = "colorChipPurple"
+      } else if (state.turnColor === "green") {
+          state.turnColorClass = "colorChipGreen"
+      } else {
+          state.turnColorClass = "colorChipBlue"
       }
 
   } else {
 
   }
+  console.log("state")
+    console.log(state)
+
 });
 
 nodeUsernameBoxP1.addEventListener("click", function(event) {
@@ -449,13 +473,17 @@ function checkDiagonalBottomRight(){
   // }
 }
 
-function checkDiagonalBottomLeft(color){
-  for ( let i = gameBoardColumns - state.toWin ; i < 0; i--) {
+function checkDiagonalBottomLeft(){
+  let startingPosition = state.gameBoardColumns - (state.toWin--);
+  console.log("startingPostition");
+    console.log(startingPosition)
+
+  for ( let i = state.gameBoardColumns; i < 0; i--) {
     let toCheckArray = [];
       for ( let j = 0; j < state.toWin; i++) {
         const bottomRow = gameBoardColumns-1
         // let checkIndividualElement;
-          if ( state.gameBoard[bottomRow][i + j] === color){
+          if ( state.gameBoard[bottomRow][i + j] === state.turnColor){
             toCheckArray.push("success");
           } else {
             toCheckArray = [];
@@ -477,7 +505,16 @@ function checkDiagonalRight(){
 }
 
 
-function checkSpecificDropChipColumn( row, column ) {
+function masterCheckWinner( callbackBL ) {
+  let checkBL = callbackBL();
+  if ( checkBL === true) {
+    window.alert(turn + " has won");
+  } else {
+    // window.alert("Nobobdy has won yet");
+  }
+}
+
+function checkSpecificDropChipCell( row, column ) {
   // let rowMinus1 = row-1;
   // let columnMinus1 = column-1;
     if ( state.gameBoard[row][column].contents === "empty"){
@@ -487,189 +524,432 @@ function checkSpecificDropChipColumn( row, column ) {
     }
 }
 
-function animationSwap(
-  // animationNodeRemove, animationNodeAdd, 
-  columnSet, classToAdd ) {
-    console.log("animationRannnnnnnnnnnnnnnnnnnnn")
-  // animationNodeRemove.className = "";
-  // animationNodeAdd.className = classToAdd
-  let rowNode1 = [...row1Node.childNodes];
-  let rowNode2 = [...row2Node.childNodes];
-  let rowNode3 = [...row3Node.childNodes];
-  let rowNode4 = [...row4Node.childNodes];
-  let rowNode5 = [...row5Node.childNodes];
-  let rowNode6 = [...row6Node.childNodes];
-  // let rowNode7 = [...row7Node.childNodes];
-  // let rowNode8 = [...row1Node.childNodes];
-  // let rowNode9 = [...row1Node.childNodes];
-  if ( state.animationDropPhase === 1 && state.animationDropPhase <= state.animationEnd ) {
-    // rowNode1[column].className = "";
-    rowNode1[columnSet].className = classToAdd;
-    // state.animationDropPhase = 2
-    state.animationDropPhase++
-  } else if ( state.animationDropPhase === 2 && state.animationDropPhase <= state.animationEnd ) {
-    rowNode1[columnSet].className = "";
-    rowNode2[columnSet].className = classToAdd;
-    state.animationDropPhase++
-  }  else if ( state.animationDropPhase === 3 && state.animationDropPhase <= state.animationEnd ) {
-    rowNode2[columnSet].className = "";
-    rowNode3[columnSet].className = classToAdd;
-    state.animationDropPhase++
-  } else if ( state.animationDropPhase === 4 && state.animationDropPhase <= state.animationEnd ) {
-    rowNode3[columnSet].className = "";
-    rowNode4[columnSet].className = classToAdd;
-    state.animationDropPhase++
-  } else if ( state.animationDropPhase === 5 && state.animationDropPhase <= state.animationEnd ) {
-    rowNode4[columnSet].className = "";
-    rowNode5[columnSet].className = classToAdd;
-    state.animationDropPhase++
-  } else if ( state.animationDropPhase === 6 && state.animationDropPhase <= state.animationEnd ) {
-    rowNode5[columnSet].className = "";
-    rowNode6[columnSet].className = classToAdd;
-    state.animationDropPhase++
+function switchUsernamesBorders() {
+
+  if ( state.turn === state.players[0].player1Username) {
+    state.turn = state.players[1].player2Username;
+    state.turnColor = state.players[1].player2Color;
+    state.turnColorClass = state.players[1].player2ColorClass;
+    nodePlayerSections[0].style.outline="";
+    nodePlayerSections[1].style.outline="4px solid " + state.players[1].player2Color;
   } else {
-
+    state.turn = state.players[0].player1Username;
+    state.turnColor = state.players[0].player1Color;
+    state.turnColorClass = state.players[0].player1ColorClass;
+    nodePlayerSections[1].style.outline="";
+    nodePlayerSections[0].style.outline="4px solid " + state.players[0].player1Color;
   }
-}
 
-function animationDrop(test) {
-  // if ( state.animationDropPhase <= state.animationEnd && state.animationDropPhase === 1) {
+  // if ( state.turnColor === state.players[0].player1Color) {
+  //   state.turnColor = state.players[1].player2Color
+  // } else {
+  //   state.turnColor = state.players[0].player1Color
+  // }
+
+  // if ( state.turnColor === state.players[0].player1Color ) {
+  //   nodePlayerSections[1].style.outline="";
+  //   nodePlayerSections[0].style.outline="4px solid " + state.players[0].player1Color;
+  // } else {
+  //   nodePlayerSections[0].style.outline="";
+  //   nodePlayerSections[1].style.outline="4px solid " + state.players[1].player2Color;
+  // }
+  
+  //    switch(state.turn === state.players[0].player1Username){
+  //   case state.players[0].player1Color === "red":
+  //     state.turnColorClass = "colorChipRed";
+  //           colorClass = "colorChipRed";
+
+  //     break;
+  //   case state.players[0].player1Color === "blue":
+  //     state.turnColorClass = "colorChipBlue";
+  //           colorClass = "colorChipBlue";
+
+  //     break;
+  //   case state.players[0].player1Color === "purple":
+  //     state.turnColorClass = "colorChipPurple";
+  //           colorClass = "colorChipPurple";
+
+  //     break;
+  //   case state.players[0].player1Color === "green":
+  //     state.turnColorClass = "colorChipGreen";
+  //           colorClass = "colorChipGreen";
+
+  //     break;
+  //   default:
+  //  } 
+
+  // switch(state.turn === state.players[1].player2Username){
+  //   case state.players[1].player2Color === "red":
+  //     state.turnColorClass = "colorChipRed";
+  //           colorClass = "colorChipRed";
+
+  //     break;
+  //   case state.players[1].player2Color === "blue":
+  //     state.turnColorClass = "colorChipBlue";
+  //           colorClass = "colorChipBlue";
+
+  //     break;
+  //   case state.players[1].player2Color === "purple":
+  //     state.turnColorClass = "colorChipPurple";
+  //           colorClass = "colorChipPurple";
+
+  //     break;
+  //   case state.players[1].player2Color === "green":
+  //     state.turnColorClass = "colorChipGreen";
+  //           state.turnColorClass = "colorChipGreen";
+
+  //     break;
+  //   default:
 
   // }
-  window.alert(test)
+
+  //  switch(state.turn === state.players[0].player1Username){
+  //   case state.players[0].player1Color === "red":
+  //     state.turnColorClass = "colorChipRed";
+  //           colorClass = "colorChipRed";
+
+  //     break;
+  //   case state.players[0].player1Color === "blue":
+  //     state.turnColorClass = "colorChipBlue";
+  //           colorClass = "colorChipBlue";
+
+  //     break;
+  //   case state.players[0].player1Color === "purple":
+  //     state.turnColorClass = "colorChipPurple";
+  //           colorClass = "colorChipPurple";
+
+  //     break;
+  //   case state.players[0].player1Color === "green":
+  //     state.turnColorClass = "colorChipGreen";
+  //           colorClass = "colorChipGreen";
+
+  //     break;
+  //   default:
+  //  } 
+
+  // switch(state.turn === state.players[1].player2Username){
+  //   case state.players[1].player2Color === "red":
+  //     state.turnColorClass = "colorChipRed";
+  //           colorClass = "colorChipRed";
+
+  //     break;
+  //   case state.players[1].player2Color === "blue":
+  //     state.turnColorClass = "colorChipBlue";
+  //           colorClass = "colorChipBlue";
+
+  //     break;
+  //   case state.players[1].player2Color === "purple":
+  //     state.turnColorClass = "colorChipPurple";
+  //           colorClass = "colorChipPurple";
+
+  //     break;
+  //   case state.players[1].player2Color === "green":
+  //     state.turnColorClass = "colorChipGreen";
+  //           state.turnColorClass = "colorChipGreen";
+
+  //     break;
+  //   default:
+
+  // }
+
 }
 
+
+
 dropNode.addEventListener("click", function(event) {
-
-  let currentColorClass;
+  let colorClass;
+  if ( state.newGame === true ) {
   
-   switch(state.turn === state.players[0].player1Username){
-    case state.players[0].player1Color === "red":
-      state.turnColorClass = "colorChipRed"
-      break;
-    case state.players[0].player1Color === "blue":
-      state.turnColorClass = "colorChipBlue"
-      break;
-    case state.players[0].player1Color === "purple":
-      state.turnColorClass = "colorChipPurple"
-      break;
-    case state.players[0].player1Color === "green":
-      state.turnColorClass = "colorChipGreen"
-      break;
-    default:
-   } 
+  //  switch(state.turn === state.players[0].player1Username){
+  //   case state.players[0].player1Color === "red":
+  //     state.turnColorClass = "colorChipRed";
+  //           colorClass = "colorChipRed";
 
-  switch(state.turn === state.players[1].player2Username){
-    case state.players[1].player2Color === "red":
-      state.turnColorClass = "colorChipRed"
-      break;
-    case state.players[1].player2Color === "blue":
-      state.turnColorClass = "colorChipBlue"
-      break;
-    case state.players[1].player2Color === "purple":
-      state.turnColorClass = "colorChipPurple"
-      break;
-    case state.players[1].player2Color === "green":
-      state.turnColorClass = "colorChipGreen"
-      break;
-    default:
+  //     break;
+  //   case state.players[0].player1Color === "blue":
+  //     state.turnColorClass = "colorChipBlue";
+  //           colorClass = "colorChipBlue";
 
-  }
+  //     break;
+  //   case state.players[0].player1Color === "purple":
+  //     state.turnColorClass = "colorChipPurple";
+  //           colorClass = "colorChipPurple";
+
+  //     break;
+  //   case state.players[0].player1Color === "green":
+  //     state.turnColorClass = "colorChipGreen";
+  //           colorClass = "colorChipGreen";
+
+  //     break;
+  //   default:
+  //  } 
+
+  // switch(state.turn === state.players[1].player2Username){
+  //   case state.players[1].player2Color === "red":
+  //     state.turnColorClass = "colorChipRed";
+  //           colorClass = "colorChipRed";
+
+  //     break;
+  //   case state.players[1].player2Color === "blue":
+  //     state.turnColorClass = "colorChipBlue";
+  //           colorClass = "colorChipBlue";
+
+  //     break;
+  //   case state.players[1].player2Color === "purple":
+  //     state.turnColorClass = "colorChipPurple";
+  //           colorClass = "colorChipPurple";
+
+  //     break;
+  //   case state.players[1].player2Color === "green":
+  //     state.turnColorClass = "colorChipGreen";
+  //           state.turnColorClass = "colorChipGreen";
+
+  //     break;
+  //   default:
+
+  // }
 
   const dropNodeClick = event.target.attributes.dropNumber.value;
   const column = Number(dropNodeClick);
+
   const row1 = [...row1Node.childNodes];
+  const row1filtered = [];
+    for ( let i = 0; i < row1.length; i++ ) {
+      if ( row1[i].nodeName === "TD" ) {
+        row1filtered.push(row1[i])
+      }
+    }
+
+  const row2filtered = [];
   const row2 = [...row2Node.childNodes];
+      for ( let i = 0; i < row2.length; i++ ) {
+      if ( row2[i].nodeName === "TD" ) {
+        row2filtered.push(row2[i])
+      }
+    }
+
+  const row3filtered = [];
   const row3 = [...row3Node.childNodes];
+      for ( let i = 0; i < row3.length; i++ ) {
+      if ( row3[i].nodeName === "TD" ) {
+        row3filtered.push(row3[i])
+      }
+    }
+
+  const row4filtered = [];
   const row4 = [...row4Node.childNodes];
+      for ( let i = 0; i < row4.length; i++ ) {
+      if ( row4[i].nodeName === "TD" ) {
+        row4filtered.push(row4[i])
+      }
+    }
+
+  const row5filtered = [];
   const row5 = [...row5Node.childNodes];
+      for ( let i = 0; i < row5.length; i++ ) {
+      if ( row5[i].nodeName === "TD" ) {
+        row5filtered.push(row5[i])
+      }
+    }
+
+  const row6filtered = [];
   const row6 = [...row6Node.childNodes];
-  // state.animationEnd = column;
-  state.animationDropPhase = 1;
+      for ( let i = 0; i < row6.length; i++ ) {
+      if ( row6[i].nodeName === "TD" ) {
+        row6filtered.push(row6[i])
+      }
+    }
 
-  const animationDrop = setInterval(function(){
-    console.log(row1)
-    state.animationDropPhase += 1;
-    console.log(state.animationDropPhase)
-    console.log(state.animationEnd)
+  let row = 0;
+  let arrayNodeCheck = [];
+  // let recordEnd = [];
+  let finalRowStoppingPoint;
+  let endSwitch = false;
+  let finalRowIndex;
 
-    if ( state.animationDropPhase > state.animationEnd){
-      console.log("END THIS ANIMAIONNNN")
-    clearInterval(animationDrop)
-    }},1100)
-
-
-  // console.log("dropNodeClick");
-  // console.dir(dropNodeClick)
- 
-
-  // const columnMinusOne = column - 1;
-  // let arrayNodeColumnAttributes = [ 1, 3, 5, 7, 9, 11, 13]
-  // let currentColumnIndex = arrayNodeColumnAttributes.indexOf(column);
-  // let currentRow = 0;
-  //  for ( let i = 0; i < state.gameBoardRows; i++){
-  //   let checkOpen = checkSpecificDropChipColumn(i,currentColumnIndex);
-  //   console.log("i + currentColumnIndex")
-  //   console.log(i + " " + column)
-  //   console.log("forloopRan");
-  //     if (checkOpen === true) {
-  //       currentRow++
-          // switch(checkOpen === true) {
-          //   case i === 0:
-          //     row1[column].className = state.turnColorClass;
-          //     console.log("row1[column]");
-          //     console.log(row1[column])
-          //   break;
-          //   case i === 1:
-          //     window.setTimeout(function(){
-          //       row1[column].className = "";
-          //       row2[column].className = state.turnColorClass;
-          //     },300)
-          //     // row1[column].className = "";
-          //     // row2[column].className = state.turnColorClass;
-          //     // console.log("row2[column]");
-          //     // console.log(row2[column])
-          //   break;
-          //   case i===2:
-          //      window.setTimeout(function(){
-          //       row2[column].className = "";
-          //       row3[column].className = state.turnColorClass;
-          //     },300)
-          //     // row2[column].className = "state.turnColorClass";
-          //     // row3[column].className = state.turnColorClass;
-          //     // console.log("row3[column]");
-          //     // console.log(row3[column])
-          //   break;
-          //   case i===3:
-          //       window.setTimeout(function(){
-          //       row3[column].className = "";
-          //       row4[column].className = state.turnColorClass;
-          //     },300)
-          //   break;
-          //   case i===4:
-          //       window.setTimeout(function(){
-          //       row4[column].className = "";
-          //       row5[column].className = state.turnColorClass;
-          //     },300)
-          //   break;
-          //   case i===5:
-          //       window.setTimeout(function(){
-          //       row5[column].className = "";
-          //       row6[column].className = state.turnColorClass;
-          //     },300)
-          //   break;
-          //   default:
-    
-          // }
-      // } 
-      // else if (checkOpen === true && i === 0){
-      //   currentRow++
-      //   currentColumn += 1
+  for ( let i=0; i < state.gameBoardRows; i++ ) {
+      let toPush = checkSpecificDropChipCell(i,column);
+      // console.log(i);
+      // console.log(column)
+      arrayNodeCheck.push(toPush);
+      // if ( toPush === false && rowIndex.length === 1){
+      //   finalRowStoppingPoint.push(i);
       // }
-      //  else {
-      //   break
-      // }
+  }    
+  
+  // if ( finalRowStoppingPoint.length === 2) {
+  //   finalRowStoppingPoint.shift()
+  // }
+
+  finalRowStoppingPoint = arrayNodeCheck.indexOf(false);
+  if ( finalRowStoppingPoint === -1 ) {
+    finalRowStoppingPoint = state.gameBoardRows;
+  }
+
+  finalRowIndex = finalRowStoppingPoint - 1
+    console.log("finalRowIndex")
+
+  console.log(finalRowIndex)
+
+  if ( arrayNodeCheck[0] === true) {
+    state.gameBoard[finalRowIndex][column].contents = state.turnColor;
+  } else {
+    window.alert("This column is full.")
+  }
+
+console.log(arrayNodeCheck)
+  let checkOpen = checkSpecificDropChipCell(0,column);
+  let finishingPoint = state.gameBoardRows + 4;
+  let keepGoing;
+  let columnsMinus1 = state.gameBoardColumns - 1;
+  // let checkOpen = true;
+  window.alert("state");
+
+  console.log(state);
+  // window.alert("recordEnd");
+    //  console.log(recordEnd);
+
+
+    //  if (recordEnd.length === 0) {
+    //     rowIndex = state.gameBoardRows
+    //   } else {
+    //     rowIndex = recordEnd[0];
+    //   }
       
+      if ( arrayNodeCheck[0] === true) {
+          const animationDrop = setInterval(function(){
+                if ( row === 0){
+                  row1filtered[column].className = state.turnColorClass;
+                  row++
+                  console.log("row")
+                  console.log(row)
+                  // console.log("rowIndex")
+                  // console.log(rowIndex)
+                  console.log("******************* ran 1 *****************************")
+                  
+                } 
+                else if ( row === 1 && row < finalRowStoppingPoint) {
+                  row1filtered[column].className = "";
+                  row2filtered[column].className = state.turnColorClass;
+                  row++;
+                                  console.log("row")
+                  console.log(row)
+                  // console.log("rowIndex")
+                  // console.log(rowIndex)
+                  console.log("******************* ran 2 *****************************")
+                } 
+                //  else if ( row === 1 && row === rowIndex) {
+                //   row1filtered[column].className = "";
+                //   row2filtered[column].className = state.turnColorClass;
+                //   row++;
+                //                   console.log("row")
+                //   console.log(row)
+                //   console.log("rowIndex")
+                //   console.log(rowIndex)
+                //   console.log("******************* ran 2 *****************************")
+                // }
+                //  else if ( row === 2 && row !== rowIndex) {
+                //   row2filtered[column].className = "";
+                //   row3filtered[column].className = state.turnColorClass;
+                //   row++;
+                //                   console.log("row")
+                //   console.log(row)
+                //   console.log("rowIndex")
+                //   console.log(rowIndex)
+                //   console.log("******************* ran 3 *****************************")
+
+                // } 
+                else if ( row === 2 && row < finalRowStoppingPoint) {
+                  row2filtered[column].className = "";
+                  row3filtered[column].className = state.turnColorClass;
+                  row++;
+                                  console.log("row")
+                  console.log(row)
+                  // console.log("rowIndex")
+                  // console.log(rowIndex)
+                  console.log("******************* ran 3 *****************************")
+
+                }
+                 else if ( row === 3 && row < finalRowStoppingPoint) {
+                  row3filtered[column].className = "";
+                  row4filtered[column].className = state.turnColorClass;
+                  row++;
+                                  console.log("row")
+                  console.log(row)
+                  // console.log("rowIndex")
+                  // console.log(rowIndex)
+                          console.log("******************* ran 4 *****************************")
+
+                } 
+                else if ( row === 4 && row < finalRowStoppingPoint) {
+                  row4filtered[column].className = "";
+                  row5filtered[column].className = state.turnColorClass;
+                  row++;
+                                  console.log("row")
+                  console.log(row)
+                  // console.log("rowIndex")
+                  // console.log(rowIndex)
+                          console.log("******************* ran 5 *****************************")
+
+                }
+                //  else if ( row === 4 && row === rowIndex) {
+                //   row4filtered[column].className = "";
+                //   row5filtered[column].className = state.turnColorClass;
+                //   row++;
+                //                   console.log("row")
+                //   console.log(row)
+                //   console.log("rowIndex")
+                //   console.log(rowIndex)
+                //           console.log("******************* ran 5 *****************************")
+
+                // }
+                //  else if ( row === 5 && row !== rowIndex) {
+                //   row5filtered[column].className = "";
+                //   row6filtered[column].className = state.turnColorClass;
+                //   row++;
+                //                   console.log("row")
+                //   console.log(row)
+                //   console.log("rowIndex")
+                //   console.log(rowIndex)
+                //           console.log("******************* ran 16 *****************************")
+
+                // }
+                 else if ( row === 5 && row < finalRowStoppingPoint) {
+                  row5filtered[column].className = "";
+                  row6filtered[column].className = state.turnColorClass;
+                  row++;
+                                  console.log("row")
+                  console.log(row)
+                  // console.log("rowIndex")
+                  // console.log(rowIndex)
+                          console.log("******************* ran 16 *****************************")
+
+                }
+                else if (row === finalRowStoppingPoint) {
+                    // let winningMove = masterCheckWinner( checkDiagonalBottomLeft );
+                  let winningMove = masterCheckWinner;
+                  winningMove( checkDiagonalBottomLeft );
+                  row++;
+                  switchUsernamesBorders();
+                  // endSwitch = true;
+                                  console.log("row")
+                  console.log(row)
+                  // console.log("rowIndex")
+                  // console.log(rowIndex)
+                  console.log("******************* ran win *****************************")
+                } else {
+                  console.log("******************* ran clear *****************************")
+                  clearInterval(animationDrop);
+                                    // endSwitch = false;
+
+                }
+            
+            }, 50)
+      } else {
+        window.alert("This column is full.")
+      }
+            
+        }
    })
 
   

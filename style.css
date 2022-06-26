@@ -1,24 +1,38 @@
 
 table {
   background-color: lightgray;
-  width: 78%;
-  height: 60vw;
-  outline: 4px solid black;
+  width: 80%;
+  height: 72vw;
+  padding:0px;
+  /* border: 5px solid black; */
 }
 
 tr {
+  display: flex;
+  flex-direction: row;
+  content:fit-content;
   background-color: lightgray;
   width: 100%;
-  outline: 2px solid rgb(34, 33, 33);
+  height: 12vw;
+  outline: 1px solid rgb(65, 63, 63);
 }
 
 td {
-  outline: 4px solid rgb(34, 33, 33);
+  outline: 1px solid rgb(65, 63, 63);
   background-color: whitesmoke;
-  width: 14%;
-  height: 10vw;
+  width: 12vw;
+  height: 12vw;
   margin: 0;
   padding: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 12vw;
+  /* margin: 2px; */
+  padding: 0;
+  /* outline: 4px solid black; */
 }
 
 .specialPieces {
@@ -47,7 +61,7 @@ div.userControls {
   margin:0;
   background-image: linear-gradient(to right, rgb(196, 195, 195), rgb(255, 255, 255), rgb(196, 195, 195));
   outline: 1vw solid rgb(41, 38, 38);
-  width: 77%;
+  width: 86%;
   padding:0;
 }
 
@@ -58,7 +72,7 @@ div.banner {
   background-image: linear-gradient(to right, rgb(41, 38, 38), rgb(95, 84, 84));
   /* align-items: space-between; */
   height: 10vw;
-  width:80%;
+  width:88%;
 }
 
 .player1Name {
@@ -101,7 +115,7 @@ div.banner {
 }
 
 .colorChipRed {
-  width:11vw;
+  width:12vw;
   height:100%;
   display:inline-block;
   background-image: linear-gradient(to right, rgb(248, 142, 142), rgb(234, 10, 10));
@@ -128,10 +142,9 @@ div.banner {
 }
 
 .colorChipPurple {
-  width:100%;
+   width:12vw;
   height:100%;
   display:inline-block;
-  border-radius: 50%;
   background-image: linear-gradient(to right, rgb(208, 58, 208), purple);
 }
 
@@ -158,10 +171,9 @@ div.banner {
 }
 
 .colorChipBlue {
-  width:100%;
+  width:12vw;
   height:100%;
   display:inline-block;
-  border-radius: 50%;
   background-image: linear-gradient(to right, rgb(112, 112, 250), blue);
 }
 
@@ -187,10 +199,9 @@ div.banner {
 }
 
 .colorChipGreen {
-  width:100%;
+  width:12vw;
   height:100%;
   display:inline-block;
-  border-radius: 50%;
   background-image: linear-gradient(to right, rgb(39, 231, 39),green );
 }
 
@@ -212,14 +223,7 @@ div.controls {
   flex-direction:row;
 }
 
-img {
-  display: block;
-  width: 100%;
-  height: 11vw;
-  /* margin: 2px; */
-  padding: 0;
-  /* outline: 4px solid black; */
-}
+
 
 img.dropImage {
   display: block;
@@ -287,29 +291,31 @@ img.dropImage {
 
 table.dropClassTable {
   background-color: lightgray;
-  width: 78%;
+  width: 87%;
   height: 5vw;
-  outline: 4px solid black;
+  outline: 1px solid black;
 }
 
 
 td.dropClassCell {
-  outline: 4px solid rgb(34, 33, 33);
+  outline: 4px solid white(34, 33, 33);
   background-image: linear-gradient(to right, gold, yellow, gold);
-  width: 14%;
-  height: 10%;
+  width: 14.3%;
+  height: 100%;
   margin: 0;
-  padding: 0;
+  padding-top: 1.5vw;
   color:black;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-align:center;
-  font-size:1.7vw;
+  font-size:2vw;
   font-weight:bold;
+  cursor: pointer;
 }
 
 tr.dropClassRow {
   background-color: lightgray;
   width: 100%;
+  height:6vw;
   outline: 2px solid rgb(34, 33, 33);
   /* display:inline-block; */
 }
