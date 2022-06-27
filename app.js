@@ -474,16 +474,27 @@ function checkDiagonalBottomRight(){
 }
 
 function checkDiagonalBottomLeft(){
-  let startingPosition = state.gameBoardColumns - (state.toWin--);
-  console.log("startingPostition");
-    console.log(startingPosition)
-
-  for ( let i = state.gameBoardColumns; i < 0; i--) {
+  // let startingPosition = state.gameBoardColumns - state.toWin;
+  console.log("gameBoardColumns");
+    console.log(state.gameBoardColumns)
+    window.alert("482 trig");
     let toCheckArray = [];
-      for ( let j = 0; j < state.toWin; i++) {
-        const bottomRow = gameBoardColumns-1
+    let bottomRow = state.gameBoardRows - 1;
+    let finalColumn = state.gameBoardColumns;
+  for ( let i = state.gameBoardRows; i > 0; i--) {
+          finalColumn--
+        
+      for ( let j = 0; j < state.gameBoardColumns; j++) {
         // let checkIndividualElement;
-          if ( state.gameBoard[bottomRow][i + j] === state.turnColor){
+
+        if ( bottomRow - j < 0 || finalColumn + j === state.gameBoardColumns) {
+          console.log("///////////// break loop //////////////")
+          break
+        } else {
+            console.log("state");
+            console.log(state);
+            // if ( state.gameBoard[bottomRow - j][finalColumn + j] === state.turnColor){
+            if ( state.gameBoard[bottomRow - j][finalColumn + j] !== state.turnColor && state.gameBoard[bottomRow - j][finalColumn + j] !== "empty"){
             toCheckArray.push("success");
           } else {
             toCheckArray = [];
@@ -491,6 +502,22 @@ function checkDiagonalBottomLeft(){
           if ( toCheckArray.length === state.toWin) {
             return true
           }
+        }
+
+            console.log("state.gameBoard[bottomRow - j][finalColumn + j]");
+            console.log("turnColor")
+            console.log(state.turnColor)
+
+            console.log("bottomRow - j")
+            console.log(bottomRow - j)
+
+            console.log("finalColumn + j")
+            console.log(finalColumn + j)
+
+            console.log("toCheckArray");
+            console.log(toCheckArray);
+
+        
       }
   }
   return false
@@ -507,6 +534,8 @@ function checkDiagonalRight(){
 
 function masterCheckWinner( callbackBL ) {
   let checkBL = callbackBL();
+    console.log("checkBL")
+  console.log(checkBL)
   if ( checkBL === true) {
     window.alert(turn + " has won");
   } else {
@@ -797,6 +826,8 @@ dropNode.addEventListener("click", function(event) {
     window.alert("This column is full.")
   }
 
+  checkDiagonalBottomLeft();
+
 console.log(arrayNodeCheck)
   let checkOpen = checkSpecificDropChipCell(0,column);
   let finishingPoint = state.gameBoardRows + 4;
@@ -927,10 +958,8 @@ console.log(arrayNodeCheck)
                 }
                 else if (row === finalRowStoppingPoint) {
                     // let winningMove = masterCheckWinner( checkDiagonalBottomLeft );
-                  let winningMove = masterCheckWinner;
-                  winningMove( checkDiagonalBottomLeft );
+                  // let winningMove = masterCheckWinner;
                   row++;
-                  switchUsernamesBorders();
                   // endSwitch = true;
                                   console.log("row")
                   console.log(row)
@@ -939,6 +968,7 @@ console.log(arrayNodeCheck)
                   console.log("******************* ran win *****************************")
                 } else {
                   console.log("******************* ran clear *****************************")
+                  switchUsernamesBorders();
                   clearInterval(animationDrop);
                                     // endSwitch = false;
 
