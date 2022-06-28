@@ -212,7 +212,8 @@ colorsChoiceNodeP1.addEventListener("click", function(event) {
     state.players[0].player1ColorClass = "colorChipPurple";
     event.target.style.outline = "3px solid black"
     event.target.style.marginLeft = "1vw"
-    event.target.style.marginRight = "1vw"
+    event.target.style.marginRight = "1vw";
+    //Lets change this file
   break; 
     case event.target.className === "colorCircleGreen":
     clearStylingsP1(state.players[0].player1Color);
