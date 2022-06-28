@@ -35,14 +35,26 @@ img {
   /* outline: 4px solid black; */
 }
 
-.specialPieces {
+.specialPiecesShield {
   /* outline: 4px solid black; */
   background-image: url("circleImageShieldBlue.png");
   background-size: contain;
-   width:7vw;
-  height:7vw;
-  margin-left:.25vw;
-  margin-right:.25vw;
+   width:8vw;
+  height:8vw;
+   margin-left:1vw;
+  margin-right:1vw;
+  display:inline-block;
+  border-radius: 50%;
+}
+
+.specialPiecesSkull {
+  /* outline: 4px solid black; */
+  background-image: url("circleImageSkullUDBlue.png");
+  background-size: contain;
+   width:8vw;
+  height:8vw;
+  margin-left:1vw;
+  margin-right:1vw;
   display:inline-block;
   border-radius: 50%;
 }
@@ -105,10 +117,10 @@ div.banner {
 }
 
 .colorCircleRed {
-  width:4.5vw;
-  height:4.5vw;
-  margin-left:.25vw;
-  margin-right:.25vw;
+  width:15%;
+  height:4.8vw;
+  margin-left:3%;
+  margin-right:3%;
   display:inline-block;
   border-radius: 50%;
   background-image: linear-gradient(to right, rgb(248, 142, 142), rgb(234, 10, 10));
@@ -132,10 +144,10 @@ div.banner {
 }
 
 .colorCirclePurple {
-  width:4.5vw;
-  height:4.5vw;
-  margin-left:.25vw;
-  margin-right:.25vw;
+  width:15%;
+  height:4.8vw;
+  margin-left:3%;
+  margin-right:3%;
   display:inline-block;
   border-radius: 50%;
   background-image: linear-gradient(to right, rgb(208, 58, 208), purple);
@@ -160,10 +172,10 @@ div.banner {
 }
 
 .colorCircleBlue {
-  width:4.5vw;
-  height:4.5vw;
-  margin-left:.25vw;
-  margin-right:.25vw;
+  width:15%;
+  height:4.8vw;
+  margin-left:3%;
+  margin-right:3%;
   display:inline-block;
   border-radius: 50%;
   background-image: linear-gradient(to right, rgb(112, 112, 250), blue);
@@ -189,10 +201,10 @@ div.banner {
 }
 
 .colorCircleGreen {
-  width:4.5vw;
-  height:4.5vw;
-  margin-left:.25vw;
-  margin-right:.25vw;
+  width:15%;
+  height:4.8vw;
+  margin-left:3%;
+  margin-right:3%;
   display:inline-block;
   border-radius: 50%;
   background-image: linear-gradient(to right, rgb(39, 231, 39),green );
@@ -235,10 +247,10 @@ img.dropImage {
 }
 
 .playerSections {
-  width:43%;
+  width:48%;
   /* margin-left:2%; */
-  margin-left:3%;
-  margin-right:2%;
+  /* margin-left:3%;
+  margin-right:2%; */
   margin-top:4%;
   margin-bottom:20vw;
   /* margin-bottom:2%; */
@@ -257,11 +269,17 @@ img.dropImage {
 
 .input {
   display:inline-block;
+  width: 45%;
+  height: 3vw;
+  margin-left:10%;
 }
 
 .submitButton {
-  font-size: 10px;
+  font-size:2vw;
+  width:25%;
+  /* height: 3vw; */
   margin-bottom:3vw;
+  margin-right:10%;
   background-color: black;
   color: white
 }
@@ -270,7 +288,7 @@ img.dropImage {
   display:block;
   margin-left:auto;
   margin-right:auto;
-  width:fit-content;
+  width: 100%;
   height:auto;
 }
 

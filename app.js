@@ -251,8 +251,8 @@ colorsChoiceNodeP2.addEventListener("click", function(event) {
     state.players[1].player2ColorClass = "colorChipBlue";
     console.dir(event.target.style.outline);
     event.target.style.outline = "3px solid black";
-    event.target.style.marginLeft = "1vw";
-    event.target.style.marginRight = "1vw";
+    // event.target.style.marginLeft = "1vw";
+    // event.target.style.marginRight = "1vw";
   break;
   case event.target.className === "colorCirclePurple":
     clearStylingsP2(state.players[1].player2Color);
@@ -261,8 +261,8 @@ colorsChoiceNodeP2.addEventListener("click", function(event) {
     state.players[1].player2Color = "purple"
     state.players[1].player2ColorClass = "colorChipPurple";
     event.target.style.outline = "3px solid black"
-    event.target.style.marginLeft = "1vw"
-    event.target.style.marginRight = "1vw"
+    // event.target.style.marginLeft = "1vw"
+    // event.target.style.marginRight = "1vw"
   break; 
     case event.target.className === "colorCircleGreen":
     clearStylingsP2(state.players[1].player2Color);
@@ -271,8 +271,8 @@ colorsChoiceNodeP2.addEventListener("click", function(event) {
     state.players[1].player2Color = "green"
     state.players[1].player2ColorClass = "colorChipGreen";
     event.target.style.outline = "3px solid black"
-    event.target.style.marginLeft = "1vw"
-    event.target.style.marginRight = "1vw"
+    // event.target.style.marginLeft = "1vw"
+    // event.target.style.marginRight = "1vw"
   break; 
     case event.target.className === "colorCircleRed":
     clearStylingsP2(state.players[1].player2Color);
@@ -281,8 +281,8 @@ colorsChoiceNodeP2.addEventListener("click", function(event) {
     state.players[1].player2Color = "red";
     state.players[1].player2ColorClass = "colorChipRed";
     event.target.style.outline = "3px solid black"
-    event.target.style.marginLeft = "1vw"
-    event.target.style.marginRight = "1vw"
+    // event.target.style.marginLeft = "1vw"
+    // event.target.style.marginRight = "1vw"
   break; 
   default:
 
@@ -312,16 +312,13 @@ state.newGame = true;
   if ( color === "red") {
     toAttach.className = "colorCircleRedSmall";
     playerHeadlineNode.appendChild(toAttach);;
-    toAttachShield2.style.backgroundImage.src="circleImageShieldBlue.png"
-    toAttachShield2.className = "specialPieces";
+    toAttachShield2.className = "specialPiecesShield";
     toAttachShield2.attribute = "shield"
     playerColorsNode.appendChild(toAttachShield2);
-    toAttachDeathDiagonal.style.backgroundImage.src="circleImageShieldBlue.png"
-    toAttachDeathDiagonal.className = "specialPieces"; 
+    toAttachDeathDiagonal.className = "specialPiecesSkull"; 
     toAttachDeathStraight.attribute = "deathDiagonal"
     playerColorsNode.appendChild(toAttachDeathDiagonal);
-    toAttachDeathStraight.style.backgroundImage.src="circleImageShieldBlue.png"
-    toAttachDeathStraight.className = "specialPieces"; 
+    toAttachDeathStraight.className = "specialPiecesSkull"; 
     toAttachDeathStraight.attribute = "deathStraight"
     playerColorsNode.appendChild(toAttachDeathStraight);
 
@@ -333,46 +330,37 @@ state.newGame = true;
   } else if ( color === "blue") {
     toAttach.className = "colorCircleBlueSmall";
     playerHeadlineNode.appendChild(toAttach);
-    toAttachShield2.style.backgroundImage.src="circleImageShieldBlue.png"
-    toAttachShield2.className = "specialPieces";
+    toAttachShield2.className = "specialPiecesShield";
     toAttachShield2.attribute = "shield"
     playerColorsNode.appendChild(toAttachShield2);
-    toAttachDeathDiagonal.style.backgroundImage.src="circleImageShieldBlue.png"
-    toAttachDeathDiagonal.className = "specialPieces"; 
+    toAttachDeathDiagonal.className = "specialPiecesSkull"; 
     toAttachDeathStraight.attribute = "deathDiagonal"
     playerColorsNode.appendChild(toAttachDeathDiagonal);
-    toAttachDeathStraight.style.backgroundImage.src="circleImageShieldBlue.png"
-    toAttachDeathStraight.className = "specialPieces"; 
+    toAttachDeathStraight.className = "specialPiecesSkull"; 
     toAttachDeathStraight.attribute = "deathStraight"
     playerColorsNode.appendChild(toAttachDeathStraight);
   } else if ( color === "green" ) {
     toAttach.className = "colorCircleGreenSmall";
     playerHeadlineNode.appendChild(toAttach);
-    toAttachShield2.style.backgroundImage.src="circleImageShieldBlue.png"
-    toAttachShield2.className = "specialPieces";
+    toAttachShield2.className = "specialPiecesShield";
     toAttachShield2.attribute = "shield"
     playerColorsNode.appendChild(toAttachShield2);
-    toAttachDeathDiagonal.style.backgroundImage.src="circleImageShieldBlue.png"
-    toAttachDeathDiagonal.className = "specialPieces"; 
+    toAttachDeathDiagonal.className = "specialPiecesSkull"; 
     toAttachDeathStraight.attribute = "deathDiagonal"
     playerColorsNode.appendChild(toAttachDeathDiagonal);
-    toAttachDeathStraight.style.backgroundImage.src="circleImageShieldBlue.png"
-    toAttachDeathStraight.className = "specialPieces"; 
+    toAttachDeathStraight.className = "specialPiecesSkull"; 
     toAttachDeathStraight.attribute = "deathStraight"
     playerColorsNode.appendChild(toAttachDeathStraight);
   } else if ( color === "purple" ) {
     toAttach.className = "colorCirclePurpleSmall";
     playerHeadlineNode.appendChild(toAttach);
-    toAttachShield2.style.backgroundImage.src="circleImageShieldBlue.png"
-    toAttachShield2.className = "specialPieces"; 
+   toAttachShield2.className = "specialPiecesShield";
     toAttachShield2.attribute = "shield"
     playerColorsNode.appendChild(toAttachShield2);
-    toAttachDeathDiagonal.style.backgroundImage.src="circleImageShieldBlue.png"
-    toAttachDeathDiagonal.className = "specialPieces"; 
+    toAttachDeathDiagonal.className = "specialPiecesSkull"; 
     toAttachDeathStraight.attribute = "deathDiagonal"
     playerColorsNode.appendChild(toAttachDeathDiagonal);
-    toAttachDeathStraight.style.backgroundImage.src="circleImageShieldBlue.png"
-    toAttachDeathStraight.className = "specialPieces"; 
+    toAttachDeathStraight.className = "specialPiecesSkull"; 
     toAttachDeathStraight.attribute = "deathStraight"
     playerColorsNode.appendChild(toAttachDeathStraight);
   } else {
@@ -487,7 +475,7 @@ function checkDiagonalBottomLeft(){
       for ( let j = 0; j < state.gameBoardColumns; j++) {
         // let checkIndividualElement;
 
-        if ( bottomRow - j < 0 || finalColumn + j === state.gameBoardColumns) {
+        if ( bottomRow - j < 0 || finalColumn - j === state.gameBoardColumns) {
           console.log("///////////// break loop //////////////")
           break
         } else {
