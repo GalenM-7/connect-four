@@ -38,7 +38,6 @@ state = {
   ],
   gameBoardColumns: 7,
   gameBoardRows: 6,
-  animation: false,
   toWin: 4,
   // animationDropPhase: 1,
   // animationEnd: 7,
@@ -121,14 +120,12 @@ function changePlayerHeadline( node, username) {
   if(username) {
     node.innerHTML = username;
   }
-  // node.style.color = username
 }
 
 function changeDisplayUsername( node, username, usernameOriginal) {
   if(username !== usernameOriginal) {
     node.innerHTML = username;
   }
-  // node.style.color = username
 }
 
 
@@ -143,20 +140,12 @@ function clearStylingsP1( color ) {
   const child4 = child3.nextElementSibling
   if ( color === "red") {
     child1.style.outline = "";
-    child1.style.marginLeft = ".25vw";
-    child1.style.marginRight = ".25vw";
   } else if ( color === "blue") {
     child2.style.outline = "";
-    child2.style.marginLeft = ".25vw";
-    child2.style.marginRight = ".25vw";
   } else if ( color === "green" ) {
     child3.style.outline = "";
-    child3.style.marginLeft = ".25vw";
-    child3.style.marginRight = ".25vw";
   } else if ( color === "purple" ) {
     child4.style.outline = "";
-    child4.style.marginLeft = ".25vw";
-    child4.style.marginRight = ".25vw";
   } else {
 
   }
@@ -170,20 +159,12 @@ function clearStylingsP2( color ) {
   const child4 = child3.nextElementSibling
   if ( color === "red") {
     child1.style.outline = "";
-    child1.style.marginLeft = ".25vw";
-    child1.style.marginRight = ".25vw";
   } else if ( color === "blue") {
     child2.style.outline = "";
-    child2.style.marginLeft = ".25vw";
-    child2.style.marginRight = ".25vw";
   } else if ( color === "green" ) {
     child3.style.outline = "";
-    child3.style.marginLeft = ".25vw";
-    child3.style.marginRight = ".25vw";
   } else if ( color === "purple" ) {
     child4.style.outline = "";
-    child4.style.marginLeft = ".25vw";
-    child4.style.marginRight = ".25vw";
   } else {
 
   }
@@ -201,7 +182,7 @@ colorsChoiceNodeP1.addEventListener("click", function(event) {
     state.players[0].player1Color = "blue";
     state.players[0].player1ColorClass = "colorChipBlue";
     console.dir(event.target.style.outline)
-    event.target.style.outline = "3px solid black"
+    event.target.style.outline = "3px solid black";
     event.target.style.marginLeft = "1vw"
     event.target.style.marginRight = "1vw"
   break;
@@ -213,7 +194,6 @@ colorsChoiceNodeP1.addEventListener("click", function(event) {
     event.target.style.outline = "3px solid black"
     event.target.style.marginLeft = "1vw"
     event.target.style.marginRight = "1vw";
-    //Lets change this file
   break; 
     case event.target.className === "colorCircleGreen":
     clearStylingsP1(state.players[0].player1Color);
@@ -245,45 +225,32 @@ colorsChoiceNodeP2.addEventListener("click", function(event) {
  switch ( state.newGame === false) {
   case event.target.className === "colorCircleBlue":
     clearStylingsP2(state.players[1].player2Color);
-
-    // changePlayerHeadline( colorsPlayer2Heading , "Blue" , "blue") 
     colorsPlayer2Heading.style.color = "blue";
     state.players[1].player2Color = "blue";
     state.players[1].player2ColorClass = "colorChipBlue";
     console.dir(event.target.style.outline);
     event.target.style.outline = "3px solid black";
-    // event.target.style.marginLeft = "1vw";
-    // event.target.style.marginRight = "1vw";
   break;
   case event.target.className === "colorCirclePurple":
     clearStylingsP2(state.players[1].player2Color);
-      // changePlayerHeadline( colorsPlayer2Heading , "Purple" , "purple")
     colorsPlayer2Heading.style.color = "purple" 
     state.players[1].player2Color = "purple"
     state.players[1].player2ColorClass = "colorChipPurple";
     event.target.style.outline = "3px solid black"
-    // event.target.style.marginLeft = "1vw"
-    // event.target.style.marginRight = "1vw"
   break; 
     case event.target.className === "colorCircleGreen":
     clearStylingsP2(state.players[1].player2Color);
-    // changePlayerHeadline( colorsPlayer2Heading , "Green" , "green") 
     colorsPlayer2Heading.style.color = "green" 
     state.players[1].player2Color = "green"
     state.players[1].player2ColorClass = "colorChipGreen";
     event.target.style.outline = "3px solid black"
-    // event.target.style.marginLeft = "1vw"
-    // event.target.style.marginRight = "1vw"
   break; 
     case event.target.className === "colorCircleRed":
     clearStylingsP2(state.players[1].player2Color);
-    // changePlayerHeadline( colorsPlayer2Heading , "Red" , "rgb(234, 10, 10)") 
     colorsPlayer2Heading.style.color = "rgb(234, 10, 10)" 
     state.players[1].player2Color = "red";
     state.players[1].player2ColorClass = "colorChipRed";
     event.target.style.outline = "3px solid black"
-    // event.target.style.marginLeft = "1vw"
-    // event.target.style.marginRight = "1vw"
   break; 
   default:
 
@@ -298,8 +265,6 @@ function gameTransition( playerHeadlineNode, color, playerColorsNode ) {
 
 state.newGame = true;
 
-
-  // while(playerColorsNode.firstChild) {
       playerColorsNode.removeChild(playerColorsNode.firstElementChild)
       playerColorsNode.removeChild(playerColorsNode.firstElementChild)
       playerColorsNode.removeChild(playerColorsNode.firstElementChild)
@@ -322,12 +287,6 @@ state.newGame = true;
     toAttachDeathStraight.className = "specialPiecesSkull"; 
     toAttachDeathStraight.attribute = "deathStraight"
     playerColorsNode.appendChild(toAttachDeathStraight);
-
-    // playerColorsNode.firstElementChild.firstSibling.appendChild(toAttachDeathStraight);
-    // playerColorsNode.appendChild(toAttackDeathDiagonal);
-
-    // child1.style.marginLeft = ".25vw";
-    // child1.style.marginRight = ".25vw"
   } else if ( color === "blue") {
     toAttach.className = "colorCircleBlueSmall";
     playerHeadlineNode.appendChild(toAttach);
@@ -369,18 +328,11 @@ state.newGame = true;
   }
 
 }
-// const nodeTextBoxP2 = document.getElementsByClassName("userNameField")[1];
 
-// console.log(nodeTextBoxP1)
-// console.dir(nodeTextBoxP1)
 
-// const nodeTextBox = document.getElementById("userNameFieldBox");
-// const nodeSubmitButton = document.getElementsByClassName("submitButton")
-console.log("colorsChoiceNodeP1.firstChild")      
-console.dir(colorsChoiceNodeP1.firstChild)  
 
 nodeStartGame.addEventListener("click", function() {
-  window.alert("click")
+
   if ( state.newGame === false && state.players[0].player1Color !== null && state.players[1].player2Color !== null && state.players[0].player1Color !== state.players[1].player2Color) {
     window.alert("you started a game");
       userNameBoxP1.style.display = "none";
@@ -395,10 +347,14 @@ nodeStartGame.addEventListener("click", function() {
         state.turn = state.players[0].player1Username;
         state.turnColor = state.players[0].player1Color;
         nodePlayerSections[0].style.outline="4px solid " + state.players[0].player1Color;
+        nodePlayerSections[0].style.height = "21vw";
+        nodePlayerSections[1].style.height = "21vw";
       } else {
         state.turn = state.players[1].player2Username;
         state.turnColor = state.players[1].player2Color;
         nodePlayerSections[1].style.outline="4px solid " + state.players[1].player2Color;
+        nodePlayerSections[1].style.height = "21vw";
+        nodePlayerSections[0].style.height = "21vw";
       }
 
       if ( state.turnColor === "red" ) {
@@ -412,10 +368,9 @@ nodeStartGame.addEventListener("click", function() {
       }
 
   } else {
-
+    window.alert("Both users must choose a color and they can't be the same.")
   }
-  console.log("state")
-    console.log(state)
+
 
 });
 
@@ -430,111 +385,161 @@ nodeUsernameBoxP1.addEventListener("click", function(event) {
       state.players[0].player1Username = nodeInputDataP1.value;
       console.log(state.players[0].player1Username);
       changePlayerHeadline( colorsPlayer1Heading, state.players[0].player1Username);
-      // userNameBoxP1.style.display = "none" 
     } 
  
 })
 
 nodeUsernameBoxP2.addEventListener("click", function() {
-    if ( nodeInputDataP2.value.length < 10 && state.newGame === false
-       ) {
+    if ( nodeInputDataP2.value.length < 10 && state.newGame === false ) {
       state.players[1].player2Username = nodeInputDataP2.value;
       console.log(state.players[1].player2Username);
       changePlayerHeadline( colorsPlayer2Heading , state.players[1].player2Username);
-      // changeDisplayUsername( userNameBoxP2, state.players[1].username, "Player 2")
-
-    } 
-      // state.players[1].username = nodeInputDataP2.value;
-      console.log(state.players[1].player2Username);
+    };
 });
 
-// console.log("getAllTDElements");
-// console.log(getAllTDElements);
-// console.dir(getAllTDElements[20].attributes.xcoordinate.value);
-let getlist= [...row1Node.childNodes]
-    console.dir(getlist[5].attributes.ycoordinate.value );
+
+function masterCheckWinner( ) {
+  for ( i = 0; i < state.gameBoardRows; i++) {
+
+        for ( j = 0; j < state.gameBoardColumns; j++) {
+
+          let colMin1 = state.gameBoardColumns - 1;
+          let rowMin1 = state.gameBoardRows - 1;
+      
+            if ( i - state.toWin >= 0) {
+
+                let top1 = state.gameBoard[i][j].contents;
+                let top2 = state.gameBoard[i - 1][j].contents;
+                let top3 = state.gameBoard[i - 2][j].contents;
+                let top4 = state.gameBoard[i - 3][j].contents;
+       
+                    if ( top1 === state.turnColor && top2 === state.turnColor && top3 === state.turnColor && top4 === state.turnColor ) {
+                      return true
+                    }
+
+            } else {
+
+            }
 
 
+            if ( i - state.toWin >= 0 && j - state.toWin >= 0) {
 
-function checkDiagonalBottomRight(){
-  // for ( let i = state; i < 0; i++) {
+                let topDiagonalLeft1 = state.gameBoard[i][j].contents;
+                let topDiagonalLeft2 = state.gameBoard[i - 1][j - 1].contents;
+                let topDiagonalLeft3 = state.gameBoard[i - 2][j - 2].contents;
+                let topDiagonalLeft4 = state.gameBoard[i - 3][j - 3].contents;
 
-  // }
-}
+                  if ( topDiagonalLeft1 === state.turnColor && topDiagonalLeft2 === state.turnColor && topDiagonalLeft3 === state.turnColor && topDiagonalLeft4 === state.turnColor) {
+                    return true
+                  }
 
-function checkDiagonalBottomLeft(){
-  // let startingPosition = state.gameBoardColumns - state.toWin;
-  console.log("gameBoardColumns");
-    console.log(state.gameBoardColumns)
-    window.alert("482 trig");
-    let toCheckArray = [];
-    let bottomRow = state.gameBoardRows - 1;
-    let finalColumn = state.gameBoardColumns;
-  for ( let i = state.gameBoardRows; i > 0; i--) {
-          finalColumn--
+            } else {
+           
+            }
+            
+            if ( i - state.toWin >= 0 && j + 4 <= colMin1 ) {
+
+                let topDiagonalRight1 = state.gameBoard[i][j].contents;
+                let topDiagonalRight2 = state.gameBoard[i - 1][j + 1].contents;
+                let topDiagonalRight3 = state.gameBoard[i - 2][j + 2].contents;
+                let topDiagonalRight4 = state.gameBoard[i - 3][j + 3].contents;
+
+                  if ( topDiagonalRight1 === state.turnColor && topDiagonalRight2 === state.turnColor && topDiagonalRight3 === state.turnColor && topDiagonalRight4 === state.turnColor) {
+                    return true
+                  }
+
+            } else {
+
+            }
+
+
+            if ( i + 4 <= rowMin1 ) {
+
+                let bottom1 = state.gameBoard[i][j].contents;
+                let bottom2 = state.gameBoard[i + 1][j].contents;
+                let bottom3 = state.gameBoard[i + 2][j].contents;
+                let bottom4 = state.gameBoard[i + 3][j].contents;
+
+                  if ( bottom1 === state.turnColor && bottom2 === state.turnColor && bottom3 === state.turnColor && bottom4 === state.turnColor ) {
+                    return true
+                  }
+
+            } else {
+
+            }
+
         
-      for ( let j = 0; j < state.gameBoardColumns; j++) {
-        // let checkIndividualElement;
+            if ( j - state.toWin >= 0) {
 
-        if ( bottomRow - j < 0 || finalColumn - j === state.gameBoardColumns) {
-          console.log("///////////// break loop //////////////")
-          break
-        } else {
-            console.log("state");
-            console.log(state);
-            // if ( state.gameBoard[bottomRow - j][finalColumn + j] === state.turnColor){
-            if ( state.gameBoard[bottomRow - j][finalColumn + j] !== state.turnColor && state.gameBoard[bottomRow - j][finalColumn + j] !== "empty"){
-            toCheckArray.push("success");
-          } else {
-            toCheckArray = [];
-          }
-          if ( toCheckArray.length === state.toWin) {
-            return true
-          }
+                let left1 = state.gameBoard[i][j].contents;
+                let left2 = state.gameBoard[i][j - 1].contents;
+                let left3 = state.gameBoard[i][j - 2].contents;
+                let left4 = state.gameBoard[i][j - 3].contents;
+
+                    if ( left1 === state.turnColor && left2 === state.turnColor && left3 === state.turnColor && left4 === state.turnColor ) {
+                      return true
+                    }
+
+            } else {
+
+            }
+
+   
+            if ( j + 4 <= colMin1 ) {
+
+                let right1 = state.gameBoard[i][j].contents;
+                let right2 = state.gameBoard[i][j + 1].contents;
+                let right3 = state.gameBoard[i][j + 2].contents;
+                let right4 = state.gameBoard[i][j + 3].contents;
+
+                    if ( right1 === state.turnColor && right2 === state.turnColor && right3 === state.turnColor && right4 === state.turnColor) {
+                      return true
+                    }
+
+            } else {
+
+            }
+    
+
+            if ( i + 4 <= rowMin1 && j - state.toWin >= 0 ) {
+
+              let bottomDiagonalLeft1 = state.gameBoard[i][j].contents;
+              let bottomDiagonalLeft2 = state.gameBoard[i + 1][j - 1].contents;
+              let bottomDiagonalLeft3 = state.gameBoard[i + 2][j - 2].contents;
+              let bottomDiagonalLeft4 = state.gameBoard[i + 3][j - 3].contents;
+
+                  if ( bottomDiagonalLeft1 === state.turnColor && bottomDiagonalLeft2 === state.turnColor && bottomDiagonalLeft3 === state.turnColor && bottomDiagonalLeft4 === state.turnColor ) {
+                    return true
+                  }
+
+            } else {
+
+            }
+          
+
+            if ( i + 4 <= rowMin1 && j + 4 <= colMin1  ) {
+
+              let bottomDiagonalRight1 = state.gameBoard[i][j].contents;
+              let bottomDiagonalRight2 = state.gameBoard[i + 1][j + 1].contents;
+              let bottomDiagonalRight3 = state.gameBoard[i + 2][j + 2].contents;
+              let bottomDiagonalRight4 = state.gameBoard[i + 3][j + 3].contents;
+
+                if ( bottomDiagonalRight1 === state.turnColor && bottomDiagonalRight2 === state.turnColor && bottomDiagonalRight3 === state.turnColor && bottomDiagonalRight4 === state.turnColor ) {
+                    return true
+                  }
+
+            } else {
+
+            }
+
         }
-
-            console.log("state.gameBoard[bottomRow - j][finalColumn + j]");
-            console.log("turnColor")
-            console.log(state.turnColor)
-
-            console.log("bottomRow - j")
-            console.log(bottomRow - j)
-
-            console.log("finalColumn + j")
-            console.log(finalColumn + j)
-
-            console.log("toCheckArray");
-            console.log(toCheckArray);
-
-        
-      }
   }
+
   return false
-}
 
-function checkDiagonalLeft(){
-
-}
-
-function checkDiagonalRight(){
-
-}
-
-
-function masterCheckWinner( callbackBL ) {
-  let checkBL = callbackBL();
-    console.log("checkBL")
-  console.log(checkBL)
-  if ( checkBL === true) {
-    window.alert(turn + " has won");
-  } else {
-    // window.alert("Nobobdy has won yet");
-  }
 }
 
 function checkSpecificDropChipCell( row, column ) {
-  // let rowMinus1 = row-1;
-  // let columnMinus1 = column-1;
     if ( state.gameBoard[row][column].contents === "empty"){
         return true
     } else {
@@ -558,174 +563,12 @@ function switchUsernamesBorders() {
     nodePlayerSections[0].style.outline="4px solid " + state.players[0].player1Color;
   }
 
-  // if ( state.turnColor === state.players[0].player1Color) {
-  //   state.turnColor = state.players[1].player2Color
-  // } else {
-  //   state.turnColor = state.players[0].player1Color
-  // }
-
-  // if ( state.turnColor === state.players[0].player1Color ) {
-  //   nodePlayerSections[1].style.outline="";
-  //   nodePlayerSections[0].style.outline="4px solid " + state.players[0].player1Color;
-  // } else {
-  //   nodePlayerSections[0].style.outline="";
-  //   nodePlayerSections[1].style.outline="4px solid " + state.players[1].player2Color;
-  // }
-  
-  //    switch(state.turn === state.players[0].player1Username){
-  //   case state.players[0].player1Color === "red":
-  //     state.turnColorClass = "colorChipRed";
-  //           colorClass = "colorChipRed";
-
-  //     break;
-  //   case state.players[0].player1Color === "blue":
-  //     state.turnColorClass = "colorChipBlue";
-  //           colorClass = "colorChipBlue";
-
-  //     break;
-  //   case state.players[0].player1Color === "purple":
-  //     state.turnColorClass = "colorChipPurple";
-  //           colorClass = "colorChipPurple";
-
-  //     break;
-  //   case state.players[0].player1Color === "green":
-  //     state.turnColorClass = "colorChipGreen";
-  //           colorClass = "colorChipGreen";
-
-  //     break;
-  //   default:
-  //  } 
-
-  // switch(state.turn === state.players[1].player2Username){
-  //   case state.players[1].player2Color === "red":
-  //     state.turnColorClass = "colorChipRed";
-  //           colorClass = "colorChipRed";
-
-  //     break;
-  //   case state.players[1].player2Color === "blue":
-  //     state.turnColorClass = "colorChipBlue";
-  //           colorClass = "colorChipBlue";
-
-  //     break;
-  //   case state.players[1].player2Color === "purple":
-  //     state.turnColorClass = "colorChipPurple";
-  //           colorClass = "colorChipPurple";
-
-  //     break;
-  //   case state.players[1].player2Color === "green":
-  //     state.turnColorClass = "colorChipGreen";
-  //           state.turnColorClass = "colorChipGreen";
-
-  //     break;
-  //   default:
-
-  // }
-
-  //  switch(state.turn === state.players[0].player1Username){
-  //   case state.players[0].player1Color === "red":
-  //     state.turnColorClass = "colorChipRed";
-  //           colorClass = "colorChipRed";
-
-  //     break;
-  //   case state.players[0].player1Color === "blue":
-  //     state.turnColorClass = "colorChipBlue";
-  //           colorClass = "colorChipBlue";
-
-  //     break;
-  //   case state.players[0].player1Color === "purple":
-  //     state.turnColorClass = "colorChipPurple";
-  //           colorClass = "colorChipPurple";
-
-  //     break;
-  //   case state.players[0].player1Color === "green":
-  //     state.turnColorClass = "colorChipGreen";
-  //           colorClass = "colorChipGreen";
-
-  //     break;
-  //   default:
-  //  } 
-
-  // switch(state.turn === state.players[1].player2Username){
-  //   case state.players[1].player2Color === "red":
-  //     state.turnColorClass = "colorChipRed";
-  //           colorClass = "colorChipRed";
-
-  //     break;
-  //   case state.players[1].player2Color === "blue":
-  //     state.turnColorClass = "colorChipBlue";
-  //           colorClass = "colorChipBlue";
-
-  //     break;
-  //   case state.players[1].player2Color === "purple":
-  //     state.turnColorClass = "colorChipPurple";
-  //           colorClass = "colorChipPurple";
-
-  //     break;
-  //   case state.players[1].player2Color === "green":
-  //     state.turnColorClass = "colorChipGreen";
-  //           state.turnColorClass = "colorChipGreen";
-
-  //     break;
-  //   default:
-
-  // }
-
 }
 
 
-
 dropNode.addEventListener("click", function(event) {
-  let colorClass;
+
   if ( state.newGame === true ) {
-  
-  //  switch(state.turn === state.players[0].player1Username){
-  //   case state.players[0].player1Color === "red":
-  //     state.turnColorClass = "colorChipRed";
-  //           colorClass = "colorChipRed";
-
-  //     break;
-  //   case state.players[0].player1Color === "blue":
-  //     state.turnColorClass = "colorChipBlue";
-  //           colorClass = "colorChipBlue";
-
-  //     break;
-  //   case state.players[0].player1Color === "purple":
-  //     state.turnColorClass = "colorChipPurple";
-  //           colorClass = "colorChipPurple";
-
-  //     break;
-  //   case state.players[0].player1Color === "green":
-  //     state.turnColorClass = "colorChipGreen";
-  //           colorClass = "colorChipGreen";
-
-  //     break;
-  //   default:
-  //  } 
-
-  // switch(state.turn === state.players[1].player2Username){
-  //   case state.players[1].player2Color === "red":
-  //     state.turnColorClass = "colorChipRed";
-  //           colorClass = "colorChipRed";
-
-  //     break;
-  //   case state.players[1].player2Color === "blue":
-  //     state.turnColorClass = "colorChipBlue";
-  //           colorClass = "colorChipBlue";
-
-  //     break;
-  //   case state.players[1].player2Color === "purple":
-  //     state.turnColorClass = "colorChipPurple";
-  //           colorClass = "colorChipPurple";
-
-  //     break;
-  //   case state.players[1].player2Color === "green":
-  //     state.turnColorClass = "colorChipGreen";
-  //           state.turnColorClass = "colorChipGreen";
-
-  //     break;
-  //   default:
-
-  // }
 
   const dropNodeClick = event.target.attributes.dropNumber.value;
   const column = Number(dropNodeClick);
@@ -780,34 +623,21 @@ dropNode.addEventListener("click", function(event) {
 
   let row = 0;
   let arrayNodeCheck = [];
-  // let recordEnd = [];
   let finalRowStoppingPoint;
-  let endSwitch = false;
   let finalRowIndex;
 
   for ( let i=0; i < state.gameBoardRows; i++ ) {
       let toPush = checkSpecificDropChipCell(i,column);
-      // console.log(i);
-      // console.log(column)
       arrayNodeCheck.push(toPush);
-      // if ( toPush === false && rowIndex.length === 1){
-      //   finalRowStoppingPoint.push(i);
-      // }
   }    
   
-  // if ( finalRowStoppingPoint.length === 2) {
-  //   finalRowStoppingPoint.shift()
-  // }
-
   finalRowStoppingPoint = arrayNodeCheck.indexOf(false);
+
   if ( finalRowStoppingPoint === -1 ) {
     finalRowStoppingPoint = state.gameBoardRows;
   }
 
-  finalRowIndex = finalRowStoppingPoint - 1
-    console.log("finalRowIndex")
-
-  console.log(finalRowIndex)
+  finalRowIndex = finalRowStoppingPoint - 1;
 
   if ( arrayNodeCheck[0] === true) {
     state.gameBoard[finalRowIndex][column].contents = state.turnColor;
@@ -815,70 +645,22 @@ dropNode.addEventListener("click", function(event) {
     window.alert("This column is full.")
   }
 
-  checkDiagonalBottomLeft();
-
-console.log(arrayNodeCheck)
-  let checkOpen = checkSpecificDropChipCell(0,column);
-  let finishingPoint = state.gameBoardRows + 4;
-  let keepGoing;
-  let columnsMinus1 = state.gameBoardColumns - 1;
-  // let checkOpen = true;
-  window.alert("state");
-
-  console.log(state);
-  // window.alert("recordEnd");
-    //  console.log(recordEnd);
-
-
-    //  if (recordEnd.length === 0) {
-    //     rowIndex = state.gameBoardRows
-    //   } else {
-    //     rowIndex = recordEnd[0];
-    //   }
+  let checkMaster = masterCheckWinner();
       
       if ( arrayNodeCheck[0] === true) {
           const animationDrop = setInterval(function(){
+
                 if ( row === 0){
                   row1filtered[column].className = state.turnColorClass;
                   row++
-                  console.log("row")
-                  console.log(row)
-                  // console.log("rowIndex")
-                  // console.log(rowIndex)
-                  console.log("******************* ran 1 *****************************")
                   
                 } 
                 else if ( row === 1 && row < finalRowStoppingPoint) {
                   row1filtered[column].className = "";
                   row2filtered[column].className = state.turnColorClass;
                   row++;
-                                  console.log("row")
-                  console.log(row)
-                  // console.log("rowIndex")
-                  // console.log(rowIndex)
-                  console.log("******************* ran 2 *****************************")
+               
                 } 
-                //  else if ( row === 1 && row === rowIndex) {
-                //   row1filtered[column].className = "";
-                //   row2filtered[column].className = state.turnColorClass;
-                //   row++;
-                //                   console.log("row")
-                //   console.log(row)
-                //   console.log("rowIndex")
-                //   console.log(rowIndex)
-                //   console.log("******************* ran 2 *****************************")
-                // }
-                //  else if ( row === 2 && row !== rowIndex) {
-                //   row2filtered[column].className = "";
-                //   row3filtered[column].className = state.turnColorClass;
-                //   row++;
-                //                   console.log("row")
-                //   console.log(row)
-                //   console.log("rowIndex")
-                //   console.log(rowIndex)
-                //   console.log("******************* ran 3 *****************************")
-
-                // } 
                 else if ( row === 2 && row < finalRowStoppingPoint) {
                   row2filtered[column].className = "";
                   row3filtered[column].className = state.turnColorClass;
@@ -889,77 +671,30 @@ console.log(arrayNodeCheck)
                   // console.log(rowIndex)
                   console.log("******************* ran 3 *****************************")
 
-                }
-                 else if ( row === 3 && row < finalRowStoppingPoint) {
+                } else if ( row === 3 && row < finalRowStoppingPoint) {
                   row3filtered[column].className = "";
                   row4filtered[column].className = state.turnColorClass;
                   row++;
-                                  console.log("row")
-                  console.log(row)
-                  // console.log("rowIndex")
-                  // console.log(rowIndex)
-                          console.log("******************* ran 4 *****************************")
-
-                } 
-                else if ( row === 4 && row < finalRowStoppingPoint) {
+                } else if ( row === 4 && row < finalRowStoppingPoint) {
                   row4filtered[column].className = "";
                   row5filtered[column].className = state.turnColorClass;
                   row++;
-                                  console.log("row")
-                  console.log(row)
-                  // console.log("rowIndex")
-                  // console.log(rowIndex)
-                          console.log("******************* ran 5 *****************************")
-
-                }
-                //  else if ( row === 4 && row === rowIndex) {
-                //   row4filtered[column].className = "";
-                //   row5filtered[column].className = state.turnColorClass;
-                //   row++;
-                //                   console.log("row")
-                //   console.log(row)
-                //   console.log("rowIndex")
-                //   console.log(rowIndex)
-                //           console.log("******************* ran 5 *****************************")
-
-                // }
-                //  else if ( row === 5 && row !== rowIndex) {
-                //   row5filtered[column].className = "";
-                //   row6filtered[column].className = state.turnColorClass;
-                //   row++;
-                //                   console.log("row")
-                //   console.log(row)
-                //   console.log("rowIndex")
-                //   console.log(rowIndex)
-                //           console.log("******************* ran 16 *****************************")
-
-                // }
-                 else if ( row === 5 && row < finalRowStoppingPoint) {
+                } else if ( row === 5 && row < finalRowStoppingPoint) {
                   row5filtered[column].className = "";
                   row6filtered[column].className = state.turnColorClass;
                   row++;
-                                  console.log("row")
-                  console.log(row)
-                  // console.log("rowIndex")
-                  // console.log(rowIndex)
-                          console.log("******************* ran 16 *****************************")
+                } else if (row === finalRowStoppingPoint) {
 
-                }
-                else if (row === finalRowStoppingPoint) {
-                    // let winningMove = masterCheckWinner( checkDiagonalBottomLeft );
-                  // let winningMove = masterCheckWinner;
-                  row++;
-                  // endSwitch = true;
-                                  console.log("row")
-                  console.log(row)
-                  // console.log("rowIndex")
-                  // console.log(rowIndex)
-                  console.log("******************* ran win *****************************")
+                    if ( checkMaster) {
+                      window.alert( state.turn + " has won the game!")
+                    }
+
+                    row++;
+               
                 } else {
-                  console.log("******************* ran clear *****************************")
+            
                   switchUsernamesBorders();
                   clearInterval(animationDrop);
-                                    // endSwitch = false;
 
                 }
             
@@ -971,73 +706,3 @@ console.log(arrayNodeCheck)
         }
    })
 
-  
-
-
-   
-  // if ( currentRow === 1 
-  //   && currentColumn !== 0
-  //    ) {
-  //     let rowNode = [...row1Node.childNodes];
-  //     rowNode[column].className = currentColorClass;
-  //  } else if (currentRow === 2){
-  //      let rowNode = [...row2Node.childNodes];
-  //     rowNode[column].className = currentColorClass;
-  //         window.setInterval(function(){
-  //           console.log(rowNode[column].className)
-  //         });
-   
-
-  //  } else if (currentRow === 3){
-  //     let rowNode = [...row3Node.childNodes];
-  //     rowNode[column].className = currentColorClass;
-
-  //  } else if (currentRow === 4 ){
-  //     let rowNode = [...row4Node.childNodes];
-  //     rowNode[column].className = currentColorClass;
-
-  //  } else if (currentRow === 5){
-  //     let rowNode = [...row5Node.childNodes];
-  //     rowNode[column].className = currentColorClass;
-
-  //  } else if (currentRow === 6){
-  //     // let rowNode = [...row6Node.childNodes];
-  //     // rowNode[column].className = currentColorClass;
-  //   // console.log("currentColorClass")
-  //       // console.log(currentColorClass)
-  //       state.animationEnd = 6;
-  //     window.setInterval(function() {
-  //       animationSwap( 6, state.turnColorClass)
-  //       if ( state.animationDropPhase === state.animationEnd) {
-  //         clearInterval()
-  //       } 
-  //   },40);
-   
-  //  } else if (currentRow === 7){
-  //     // let rowNode = [...row6Node.childNodes];
-  //     // rowNode[column].className = currentColorClass;
-
-  //  } else if (currentRow === 8){
-  //     // let rowNode = [...row6Node.childNodes];
-  //     // rowNode[column].className = currentColorClass;
-
-  //  } else if (currentRow === 9){
-  //     // let rowNode = [...row6Node.childNodes];
-  //     // rowNode[column].className = currentColorClass;
-
-  //  } else {
-  //   window.alert("This column is full.")
-  //  }
-  // let checkColumn = typeof column
-  // console.log("dropNodeClick")
-
-
-// let checkSpecificDropChipColumnCheck = checkSpecificDropChipColumn(1,2);
-// console.log(checkSpecificDropChipColumnCheck)
-// console.log(test)
-// console.log(state.gameBoard.length)
-
-
-
-
-// clearStylingsP1()
