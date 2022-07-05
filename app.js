@@ -217,6 +217,48 @@ colorsChoiceNodeP1.addEventListener("click", function(event) {
 
  }
 
+  switch ( state.newGame === false) {
+  case event.target.className === "colorCircleBlue":
+    clearStylingsP1(state.players[0].player1Color);
+    colorsPlayer1Heading.style.color = "blue" 
+    state.players[0].player1Color = "blue";
+    state.players[0].player1ColorClass = "colorChipBlue";
+    console.dir(event.target.style.outline)
+    event.target.style.outline = "3px solid black";
+    event.target.style.marginLeft = "1vw"
+    event.target.style.marginRight = "1vw"
+  break;
+  case event.target.className === "colorCirclePurple":
+    clearStylingsP1(state.players[0].player1Color);
+    colorsPlayer1Heading.style.color = "purple" 
+    state.players[0].player1Color = "purple";
+    state.players[0].player1ColorClass = "colorChipPurple";
+    event.target.style.outline = "3px solid black"
+    event.target.style.marginLeft = "1vw"
+    event.target.style.marginRight = "1vw";
+  break; 
+    case event.target.className === "colorCircleGreen":
+    clearStylingsP1(state.players[0].player1Color);
+    colorsPlayer1Heading.style.color = "green" 
+    state.players[0].player1Color = "green"
+    state.players[0].player1ColorClass = "colorChipGreen";
+    event.target.style.outline = "3px solid black"
+    event.target.style.marginLeft = "1vw"
+    event.target.style.marginRight = "1vw"
+  break; 
+    case event.target.className === "colorCircleRed":
+    clearStylingsP1(state.players[0].player1Color);
+    colorsPlayer1Heading.style.color = "rgb(234, 10, 10)" 
+    state.players[0].player1Color = "red"
+    state.players[0].player1ColorClass = "colorChipRed";
+    event.target.style.outline = "3px solid black"
+    event.target.style.marginLeft = "1vw"
+    event.target.style.marginRight = "1vw"
+  break; 
+  default:
+
+ }
+
 })
 
 colorsChoiceNodeP2.addEventListener("click", function(event) {
@@ -278,49 +320,49 @@ state.newGame = true;
   if ( color === "red") {
     toAttach.className = "colorCircleRedSmall";
     playerHeadlineNode.appendChild(toAttach);;
-    toAttachShield2.className = "specialPiecesShield";
+    toAttachShield2.className = "specialPiecesShieldRed2";
     toAttachShield2.attribute = "shield"
     playerColorsNode.appendChild(toAttachShield2);
-    toAttachDeathDiagonal.className = "specialPiecesSkull"; 
+    toAttachDeathDiagonal.className = "specialPiecesSkullRedD"; 
     toAttachDeathStraight.attribute = "deathDiagonal"
     playerColorsNode.appendChild(toAttachDeathDiagonal);
-    toAttachDeathStraight.className = "specialPiecesSkull"; 
+    toAttachDeathStraight.className = "specialPiecesSkullRedLR"; 
     toAttachDeathStraight.attribute = "deathStraight"
     playerColorsNode.appendChild(toAttachDeathStraight);
   } else if ( color === "blue") {
     toAttach.className = "colorCircleBlueSmall";
     playerHeadlineNode.appendChild(toAttach);
-    toAttachShield2.className = "specialPiecesShield";
+    toAttachShield2.className = "specialPiecesShieldBlue2";
     toAttachShield2.attribute = "shield"
     playerColorsNode.appendChild(toAttachShield2);
-    toAttachDeathDiagonal.className = "specialPiecesSkull"; 
+    toAttachDeathDiagonal.className = "specialPiecesSkullBlueD"; 
     toAttachDeathStraight.attribute = "deathDiagonal"
     playerColorsNode.appendChild(toAttachDeathDiagonal);
-    toAttachDeathStraight.className = "specialPiecesSkull"; 
+    toAttachDeathStraight.className = "specialPiecesSkullBlueLR"; 
     toAttachDeathStraight.attribute = "deathStraight"
     playerColorsNode.appendChild(toAttachDeathStraight);
   } else if ( color === "green" ) {
     toAttach.className = "colorCircleGreenSmall";
     playerHeadlineNode.appendChild(toAttach);
-    toAttachShield2.className = "specialPiecesShield";
+    toAttachShield2.className = "specialPiecesShieldGreen2";
     toAttachShield2.attribute = "shield"
     playerColorsNode.appendChild(toAttachShield2);
-    toAttachDeathDiagonal.className = "specialPiecesSkull"; 
+    toAttachDeathDiagonal.className = "specialPiecesSkullGreenD"; 
     toAttachDeathStraight.attribute = "deathDiagonal"
     playerColorsNode.appendChild(toAttachDeathDiagonal);
-    toAttachDeathStraight.className = "specialPiecesSkull"; 
+    toAttachDeathStraight.className = "specialPiecesSkullGreenLR"; 
     toAttachDeathStraight.attribute = "deathStraight"
     playerColorsNode.appendChild(toAttachDeathStraight);
   } else if ( color === "purple" ) {
     toAttach.className = "colorCirclePurpleSmall";
     playerHeadlineNode.appendChild(toAttach);
-   toAttachShield2.className = "specialPiecesShield";
+   toAttachShield2.className = "specialPiecesShieldPurple2";
     toAttachShield2.attribute = "shield"
     playerColorsNode.appendChild(toAttachShield2);
-    toAttachDeathDiagonal.className = "specialPiecesSkull"; 
+    toAttachDeathDiagonal.className = "specialPiecesSkullPurpleD"; 
     toAttachDeathStraight.attribute = "deathDiagonal"
     playerColorsNode.appendChild(toAttachDeathDiagonal);
-    toAttachDeathStraight.className = "specialPiecesSkull"; 
+    toAttachDeathStraight.className = "specialPiecesSkullPurpleLR"; 
     toAttachDeathStraight.attribute = "deathStraight"
     playerColorsNode.appendChild(toAttachDeathStraight);
   } else {

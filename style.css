@@ -35,33 +35,163 @@ img {
   /* outline: 4px solid black; */
 }
 
-.specialPiecesShield {
+.specialPiecesShieldBlue2 {
   /* outline: 4px solid black; */
-  background-image: url("circleImageShieldBlue.png");
+  background-image: url("circleImageShieldBlue2.png");
   background-size: contain;
    width:7.5vw;
   height:7.5vw;
    margin-left:1vw;
   margin-right:1vw;
-    margin-top:2%;
-
+  margin-top:2%;
   display:inline-block;
   border-radius: 50%;
 }
 
-.specialPiecesSkull {
+.specialPiecesShieldRed2 {
   /* outline: 4px solid black; */
-  background-image: url("circleImageSkullUDBlue.png");
+  background-image: url("circleImageShieldRed2.png");
+  background-size: contain;
+   width:7.5vw;
+  height:7.5vw;
+   margin-left:1vw;
+  margin-right:1vw;
+  margin-top:2%;
+  display:inline-block;
+  border-radius: 50%;
+}
+
+.specialPiecesShieldPurple2 {
+  /* outline: 4px solid black; */
+  background-image: url("circleImageShieldPurple2.png");
+  background-size: contain;
+   width:7.5vw;
+  height:7.5vw;
+   margin-left:1vw;
+  margin-right:1vw;
+  margin-top:2%;
+  display:inline-block;
+  border-radius: 50%;
+}
+
+.specialPiecesShieldGreen2 {
+  /* outline: 4px solid black; */
+  background-image: url("circleImageShieldGreen2.png");
+  background-size: contain;
+   width:7.5vw;
+  height:7.5vw;
+   margin-left:1vw;
+  margin-right:1vw;
+  margin-top:2%;
+  display:inline-block;
+  border-radius: 50%;
+}
+
+.specialPiecesSkullBlueD {
+  /* outline: 4px solid black; */
+  background-image: url("circleImageSkullDBlue.png");
   background-size: contain;
    width:7.5vw;
   height:7.5vw;
   margin-left:1vw;
   margin-right:1vw;
-    margin-top:2%;
-
+  margin-top:2%;
   display:inline-block;
   border-radius: 50%;
 }
+
+.specialPiecesSkullPurpleD {
+  /* outline: 4px solid black; */
+  background-image: url("circleImageSkullDPurple.png");
+  background-size: contain;
+   width:7.5vw;
+  height:7.5vw;
+  margin-left:1vw;
+  margin-right:1vw;
+  margin-top:2%;
+  display:inline-block;
+  border-radius: 50%;
+}
+
+.specialPiecesSkullGreenD {
+  /* outline: 4px solid black; */
+  background-image: url("circleImageSkullDGreen.png");
+  background-size: contain;
+   width:7.5vw;
+  height:7.5vw;
+  margin-left:1vw;
+  margin-right:1vw;
+  margin-top:2%;
+  display:inline-block;
+  border-radius: 50%;
+}
+
+.specialPiecesSkullRedD {
+  /* outline: 4px solid black; */
+  background-image: url("circleImageSkullDRed.png");
+  background-size: contain;
+   width:7.5vw;
+  height:7.5vw;
+  margin-left:1vw;
+  margin-right:1vw;
+  margin-top:2%;
+  display:inline-block;
+  border-radius: 50%;
+}
+
+
+.specialPiecesSkullBlueLR {
+  /* outline: 4px solid black; */
+  background-image: url("circleImageSkullLRBlue.png");
+  background-size: contain;
+   width:7.5vw;
+  height:7.5vw;
+  margin-left:1vw;
+  margin-right:1vw;
+  margin-top:2%;
+  display:inline-block;
+  border-radius: 50%;
+}
+
+.specialPiecesSkullPurpleLR {
+  /* outline: 4px solid black; */
+  background-image: url("circleImageSkullLRPurple.png");
+  background-size: contain;
+   width:7.5vw;
+  height:7.5vw;
+  margin-left:1vw;
+  margin-right:1vw;
+  margin-top:2%;
+  display:inline-block;
+  border-radius: 50%;
+}
+
+.specialPiecesSkullGreenLR {
+  /* outline: 4px solid black; */
+  background-image: url("circleImageSkullLRGreen.png");
+  background-size: contain;
+   width:7.5vw;
+  height:7.5vw;
+  margin-left:1vw;
+  margin-right:1vw;
+  margin-top:2%;
+  display:inline-block;
+  border-radius: 50%;
+}
+
+.specialPiecesSkullRedLR {
+  /* outline: 4px solid black; */
+  background-image: url("circleImageSkullLRRed.png");
+  background-size: contain;
+   width:7.5vw;
+  height:7.5vw;
+  margin-left:1vw;
+  margin-right:1vw;
+  margin-top:2%;
+  display:inline-block;
+  border-radius: 50%;
+}
+
 
 section.gameBoard {
   display: flex;
@@ -262,7 +392,7 @@ img.dropImage {
 }
 
 .playerSections {
-  width:46%;
+  width:44%;
   margin-left:2%;
   margin-right:1%; 
   margin-top:4%;
